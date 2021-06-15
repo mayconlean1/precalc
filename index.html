@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/header/header.css">
+    <link rel="stylesheet" href="./styles/main/newVariable.css">
+    <link rel="stylesheet" href="./styles/header/menu.css">
+    <title>PreCalc</title>
+    <link rel="stylesheet" href="./styles/main/main.css">
+</head>
+<body onload="renderVariables()">
+    <header>  
+        <h1 class="title">preCalc</h1>
+        <div class="menu">
+            <div class="select" onclick="openCloseMenu(this)"> Menu</div><!-- menu.js -->
+            <!-- <div class="options">
+                <div class="option">Nova Variavel</div>
+                <div class="option">Salvar</div>
+                <div class="option">Limpar</div> -->
+                
+            </div> 
+        </div>
+    </header>
+    <hr>
+    <main>
+        <div class="newVariable"> <!-- createVariable.js -->
+
+            <!-- <span>Nome da Variavel</span>
+            <input type="text">
+            <div id="btnCreateVariable">Criar</div>
+            <div id="btnCancelCreateVariable">Cancelar</div> -->
+    
+        </div>
+        
+        <div class="fieldsVariableValues"> <!-- createFieldsVariableValues.js -->
+            <div class="fieldVariable">
+                <span id='variableName' > XXXXVar </span>
+                <div class="inputs fieldVariableButtons">
+                    <input
+                        class = 'fieldInputVariable' 
+                        type="number" 
+                        name="fieldInputVariable_XXXXVAR" 
+                        id="fieldInputVariable_XXXXVAR"
+                        onchange="calculate(this)">
+                    <input
+                        id="editVariableCalculation" 
+                        type="button" 
+                        value="Edit"
+                        onclick="edit( this,'XXXXVar')"
+                        >
+                </div> 
+            </div>
+            <div class="fieldVariable">
+                <span id='variableName' > A </span>
+                <div class="inputs fieldVariableButtons">
+                    <input
+                        class = 'fieldInputVariable' 
+                        type="number" 
+                        name="fieldInputVariable_A" 
+                        id="fieldInputVariable_A"
+                        onchange="calculate(this)">
+                    <input
+                        id="editVariableCalculation" 
+                        type="button" 
+                        value="Edit"
+                        onclick="edit( this,'A')"
+                        >
+
+                </div> 
+            </div>
+            <div class="fieldVariable">
+                <span id='variableName' >B </span>
+                <div class="inputs fieldVariableButtons">
+                    <input
+                        class = 'fieldInputVariable' 
+                        type="number" 
+                        name="fieldInputVariable_B" 
+                        id="fieldInputVariable_B"
+                        onchange="calculate(this)">
+                    <input
+                        id="editVariableCalculation" 
+                        type="button" 
+                        value="Edit"
+                        onclick="edit( this,'B')"
+                        >
+
+                </div> 
+            </div>   
+        
+    </main> 
+    <script src="./scripts/script.js" ></script>
+    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/createVariable.js"></script>
+    <script src="./scripts/createfieldsVariableValues.js"></script>
+    <script src="./scripts/calculate/calculate.js"></script>
+    <script src="./scripts/calculate/resolve.js"></script>
+    
+</body>
+</html>

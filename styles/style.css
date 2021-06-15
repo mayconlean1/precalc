@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 200px;
+    max-width: 400px;
+    height: 100vh;
+    padding: 1rem;
+    position: relative;
+}
+
+
+
+input[type='text'],
+input[type='number']{
+    padding: 0.5rem;
+    width: 70%;
+    margin-right: 0.2rem;
+}
+
+.inputs{
+    display:flex;
+}
+
+input[type='button']{
+    flex: 1;
+}
+
+
+
+
+
+
+
+

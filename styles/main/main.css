@@ -1,0 +1,12 @@
+main{
+    margin-top: 0.3rem;
+    padding: 0.6rem;
+    padding-bottom: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0px 10px 10px rgba(44, 44, 44, 0.247);   
+}
+
+.fieldVariable + 
+.fieldVariable{
+    margin-top: 1rem;
+}

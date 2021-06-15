@@ -1,0 +1,1 @@
+console.log(undefined + 1? 'true': 'false')
