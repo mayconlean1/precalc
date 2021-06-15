@@ -10,12 +10,9 @@ const calculations = {
     'C': ['A + B']
 }
 
-
-let wasSolved
-let notSolved
+let responses
 
 let currentVariable
-let lastVariable
 
 const update = () =>{
     const keys = Object.keys(dataResults)
