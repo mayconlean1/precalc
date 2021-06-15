@@ -76,7 +76,7 @@ const resolveExpression = (expression ='', dataToReplace = {} ) =>{
         return [eval( resp ) , true , exp]
     }catch{
         const notFound = varsNotAssigned(resp)
-        console.error(`Variavel ${notFound} não encontrada ou sem valor atribuido na expressão ${exp}`)
+        //console.error(`Variavel ${notFound} não encontrada ou sem valor atribuido na expressão ${exp}`)
         
         return [notFound , false , exp]
     }

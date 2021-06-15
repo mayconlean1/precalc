@@ -9,7 +9,6 @@ const calculate = (self) => {
     const filtredCalculations = {...calculations} 
     //delete filtredCalculations[vn]
     const resolvedExpressions = resolveAllExpressions(filtredCalculations , dataResults)
-    console.log(resolvedExpressions)
 
     const createObjectSolvedNotSolved = (resolvedExpressions) =>{
         let responses = {
@@ -40,6 +39,6 @@ const calculate = (self) => {
 
     responses = createObjectSolvedNotSolved(resolvedExpressions)
     
-    
+    showResult()
     
 }
