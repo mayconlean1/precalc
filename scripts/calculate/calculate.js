@@ -40,15 +40,17 @@ const calculate = (self) => {
     responses = createObjectSolvedNotSolved(resolvedExpressions)
     
     const updateDataResults = getResults.uniqueResults(responses)
+    
+    // if (input != ''){
+    //     delete updateDataResults[vn]
+    // }
     delete updateDataResults[vn] // deletar current
     for(let variable in updateDataResults){
         const result = updateDataResults[variable]
         if(currentVariable != variable){
             dataResults[variable] = result 
-
         }
     }
-    console.log(vn)
     // colocar valor do input  current do html no dataResults
     update()
 }

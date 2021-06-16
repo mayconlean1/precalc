@@ -5,14 +5,35 @@ const dataResults = {
 }
 
 const calculations = {
-'A': ['C + B' /*, 'B + 1' , 'D+2'*/],
+    'A': ['C + B' /*, 'B + 1' , 'D+2'*/],
     'B': ['A + C'],
     'C': ['A + B']
 }
 
-let responses = {solved:{} , notSolved:{}}
+let responses = {} //{solved:{} , notSolved:{}}
 
 let currentVariable
+
+const checkFixed = (self,variable) =>{
+    const idCheckbox = document.querySelector(`#checkbox_${variable}`)
+    idCheckbox.checked = !idCheckbox.checked
+
+
+    const checkClass = (classList)=>{
+        let tempClass = []
+        classList.forEach(v => tempClass.push(v) )
+        return tempClass.includes('checked')
+    }
+    const checked = checkClass(self.classList)
+
+    if (checked){
+        self.classList.remove ('checked')
+    }else{
+        self.classList.add ('checked')
+
+    }
+    
+}
 
 const getResults = {
     uniqueResults (responses={}){
@@ -37,7 +58,6 @@ const getResults = {
             res[variable] = tempComparison[0]
         }
     }
-    console.log(res)
     return res
     },   
 }
@@ -54,17 +74,3 @@ const edit = (self)=>{
     selfInput = self
 }
 
-const teste = (value) =>{
-    const data = JSON.stringify(dataResults)
-    localStorage.teste = data
-    console.log(data)
-}
-
-const teste1 = () =>{
-    const data = JSON.parse(localStorage.teste)
-    console.log (data['A'])
-}
-
-const teste2 = ()=>{
-    location.reload()
-}

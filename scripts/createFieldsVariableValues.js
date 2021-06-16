@@ -22,7 +22,12 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
 
         for (data in datas){
             field.innerHTML += `
-            <div class="fieldVariable">
+                <div class="fieldVariable">
+                    <input
+                        id = 'checkbox_${data}'
+                        class = 'checkboxFixed' 
+                        type="checkbox"  
+                        hidden>
                     <span id='variableName' > ${data} </span>
                     <div class="inputs fieldVariableButtons">
                         <input
@@ -32,9 +37,16 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             id="fieldInputVariable_${data}"
                             onchange="calculate(this)">
                         <input
-                            id="editVariableCalculation" 
+                            
                             type="button" 
-                            value="Edit"
+                            value="Fixar"
+                            onclick="checkFixed(this,'${data}')"
+                            >
+                        
+                        <input
+                            id="editVariableCalculation" 
+                            value='Con' 
+                            type='button'
                             onclick="edit( this,'${data}')"
                             >
                     </div> 

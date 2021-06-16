@@ -10,3 +10,7 @@ main{
 .fieldVariable{
     margin-top: 1rem;
 }
+
+.checked {
+    background-color:lightgreen;   
+}
