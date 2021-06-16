@@ -20,34 +20,34 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
         field.innerHTML = ''
         const datas = reversedObject ? reverseObject(dataResults) : dataResults
 
-        for (data in datas){
+        for (variable in datas){
             field.innerHTML += `
                 <div class="fieldVariable">
                     <input
-                        id = 'checkbox_${data}'
+                        id = 'checkbox_${variable}'
                         class = 'checkboxFixed' 
                         type="checkbox"  
                         hidden>
-                    <span id='variableName' > ${data} </span>
+                    <span id='variableName' > ${variable} </span>
                     <div class="inputs fieldVariableButtons">
                         <input
                             class = 'fieldInputVariable' 
                             type="number" 
-                            name="fieldInputVariable_${data}" 
-                            id="fieldInputVariable_${data}"
+                            name="fieldInputVariable_${variable}" 
+                            id="fieldInputVariable_${variable}"
                             onchange="calculate(this)">
                         <input
-                            
+                            id = 'btnFixed_${variable}'
                             type="button" 
                             value="Fixar"
-                            onclick="checkFixed(this,'${data}')"
+                            onclick="toogleFixed('${variable}')"
                             >
                         
                         <input
-                            id="editVariableCalculation" 
-                            value='Con' 
+                            id="btnEditVariableCalculation" 
+                            value='Cfg.' 
                             type='button'
-                            onclick="edit( this,'${data}')"
+                            onclick="edit( this,'${variable}')"
                             >
                     </div> 
                 </div>
