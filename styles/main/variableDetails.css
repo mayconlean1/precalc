@@ -1,0 +1,20 @@
+.detailsHeader{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+
+
+.btnDetails{
+    margin-top: 0;
+    display: flex;
+    padding: 0.5rem;  
+    text-align: center;
+    justify-content: center;
+}
+
+.detailsVariableName{
+    margin-left: 0.7rem;
+}

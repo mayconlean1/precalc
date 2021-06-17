@@ -41,9 +41,6 @@ const calculate = (self) => {
     
     const updateDataResults = getResults.uniqueResults(responses)
     
-    // if (input != ''){
-    //     delete updateDataResults[vn]
-    // }
     delete updateDataResults[vn] // deletar current
     for(let variable in updateDataResults){
         const result = updateDataResults[variable]
@@ -51,6 +48,5 @@ const calculate = (self) => {
             dataResults[variable] = result 
         }
     }
-    // colocar valor do input  current do html no dataResults
     update()
 }

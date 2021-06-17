@@ -15,11 +15,11 @@ let currentVariable
 
 const renderMainDefault = () =>{
     const main = document.querySelector('main')
-    console.log(main)
     main.innerHTML = `
         <div class="newVariable"></div>
         <div class="fieldsVariableValues"></div>
     `
+    renderVariables()
 }
 
 const toogleFixed = (variable, toogleInArray = true) =>{
@@ -42,8 +42,6 @@ const toogleFixed = (variable, toogleInArray = true) =>{
                 varsFixed.forEach((v,i)=>{
                     if(v == variable){
                         varsFixed.splice(0,1)
-                        console.log('checked',v,i ,varsFixed)
-    
                     }
                 })
             }
@@ -101,7 +99,39 @@ const update = () =>{
     })  
 }
 
-const edit = (self)=>{
-    selfInput = self
+const varaibleDetails = (variable)=>{
+    const renderVaraibleDetails = (variable) =>{
+        const main = document.querySelector('main')
+        main.innerHTML = `
+        <div class="btnDetails">
+            <input 
+            class="btnDetails" 
+            type="button" 
+            value="Voltar"
+            onclick="renderMainDefault()">
+            <input class="btnDetails" 
+                type="button" 
+                value="delete"
+                onclick="deleteVariable('${variable}')"
+                >
+
+        </div>
+        
+        <div class="variableDetailsMenu">
+            <div class="detailsHeader">
+                <h2 class="detailsVariableName">${variable}</h2>
+                
+            </div>
+        </div>
+        `
+    }
+    renderVaraibleDetails(variable)
+
+}
+
+const deleteVariable=(variable)=>{
+    delete dataResults[variable]
+    renderMainDefault()
+    
 }
 

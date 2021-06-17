@@ -47,7 +47,7 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             id="btnEditVariableCalculation" 
                             value='Cfg.' 
                             type='button'
-                            onclick="edit( this,'${variable}')"
+                            onclick="varaibleDetails('${variable}')"
                             >
                     </div> 
                 </div>

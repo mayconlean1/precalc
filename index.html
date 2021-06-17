@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="./styles/header/header.css">
     <link rel="stylesheet" href="./styles/main/newVariable.css">
     <link rel="stylesheet" href="./styles/header/menu.css">
+    <link rel="stylesheet" href="./styles/main/variableDetails.css">
+
     <title>PreCalc</title>
     <link rel="stylesheet" href="./styles/main/main.css">
 </head>
-<body onload="renderVariables()">
+<body onload="renderVariables({toggle:false})">
     <header>  
         <h1 class="title">preCalc</h1>
         <div class="menu">
@@ -26,6 +28,30 @@
     </header>
     <hr>
     <main>
+        <div class="btnDetails">
+            <input 
+            class="btnDetails" 
+            type="button" 
+            value="Voltar"
+            onclick="renderMainDefault()">
+            <input class="btnDetails" 
+                type="button" 
+                value="delete"
+                onclick="deleteVariable('var')"
+                >
+
+        </div>
+        
+        <div class="variableDetailsMenu">
+            <div class="detailsHeader">
+                <h2 class="detailsVariableName">Var</h2> 
+            </div>
+            <div class="detailsBody">
+                
+            </div>
+        </div>
+
+
         <div class="newVariable"> <!-- createVariable.js -->
 
             <!-- <span>Nome da Variavel</span>
@@ -97,6 +123,7 @@
     <script src="./scripts/createfieldsVariableValues.js"></script>
     <script src="./scripts/calculate/calculate.js"></script>
     <script src="./scripts/calculate/resolve.js"></script>
+    <script src="./scripts/renderVariableDetails.js"></script>
     
 </body>
 </html>
