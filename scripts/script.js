@@ -1,17 +1,31 @@
 const dataResults = {
-    'A' : '',
-    'B' : '',
-    'C': '',
+    // 'A' : '',
+    // 'B' : '',
+    // 'C': '',
 }
 const calculations = {
-    'A': ['C + B' /*, 'B + 1' , 'D+2'*/],
-    'B': ['A + C'],
-    'C': ['A + B']
+    // 'A': ['C + B' , 'B + 1' , 'D+2'],
+    // 'B': ['A + C'],
+    // 'C': ['A + B']
 }
 
 let varsFixed = []
-let responses = {} //{solved:{} , notSolved:{}}
+let responses = {
+    solved:{} , notSolved:{} , sequence:{}
+} //{solved:{} , notSolved:{} , sequence:{}}
+// sequence:{
+    //     A: {
+    //         'C + B': [true, 70], 
+    //         'B + 1':  [true, 44], 
+    //         'D+2': [false , ['D' , 'E']]
+    //     }
+        
+    // }
 let currentVariable
+
+const addCalculations = (variable, calculation) =>{
+    calculations[variable] = calculation
+}
 
 const renderMainDefault = () =>{
     const main = document.querySelector('main')
@@ -22,7 +36,7 @@ const renderMainDefault = () =>{
     renderVariables()
 }
 
-const toogleFixed = (variable, toogleInArray = true) =>{
+const toogleFixed = (variable, pushInArray = true) =>{
     
     const idCheckbox = document.querySelector(`#checkbox_${variable}`)
     idCheckbox.checked = !idCheckbox.checked
@@ -37,8 +51,8 @@ const toogleFixed = (variable, toogleInArray = true) =>{
     const checked = checkClass(idBtnFixed.classList)
 
     if (checked){
-        const delVariableInArray = (variable , toogleInArray) =>{
-            if (toogleInArray){
+        const delVariableInArray = (variable , pushInArray) =>{
+            if (pushInArray){
                 varsFixed.forEach((v,i)=>{
                     if(v == variable){
                         varsFixed.splice(0,1)
@@ -47,17 +61,17 @@ const toogleFixed = (variable, toogleInArray = true) =>{
             }
         }
 
-        delVariableInArray(variable, toogleInArray)
+        delVariableInArray(variable, pushInArray)
 
         idBtnFixed.classList.remove ('checked')
        
     }else{
-        const addVariableInArray = (variable, toogleInArray)=>{
-            if (toogleInArray){
+        const addVariableInArray = (variable, pushInArray)=>{
+            if (pushInArray){
                 varsFixed.push(variable)
             }
         }
-        addVariableInArray(variable, toogleInArray)
+        addVariableInArray(variable, pushInArray)
 
         idBtnFixed.classList.add ('checked')
     }
@@ -99,38 +113,15 @@ const update = () =>{
     })  
 }
 
-const varaibleDetails = (variable)=>{
-    const renderVaraibleDetails = (variable) =>{
-        const main = document.querySelector('main')
-        main.innerHTML = `
-        <div class="btnDetails">
-            <input 
-            class="btnDetails" 
-            type="button" 
-            value="Voltar"
-            onclick="renderMainDefault()">
-            <input class="btnDetails" 
-                type="button" 
-                value="delete"
-                onclick="deleteVariable('${variable}')"
-                >
 
-        </div>
-        
-        <div class="variableDetailsMenu">
-            <div class="detailsHeader">
-                <h2 class="detailsVariableName">${variable}</h2>
-                
-            </div>
-        </div>
-        `
-    }
-    renderVaraibleDetails(variable)
-
-}
 
 const deleteVariable=(variable)=>{
     delete dataResults[variable]
+    delete calculations[variable]
+    delete responses.solved[variable]
+    delete responses.notSolved[variable]
+    delete responses.sequence[variable]
+
     renderMainDefault()
     
 }

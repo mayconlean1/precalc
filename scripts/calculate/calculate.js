@@ -13,7 +13,8 @@ const calculate = (self) => {
     const createObjectSolvedNotSolved = (resolvedExpressions) =>{
         let responses = {
             solved:{}, 
-            notSolved:{}
+            notSolved:{}, 
+            sequence:{}
         }
     
         for (variable in resolvedExpressions){
@@ -31,6 +32,11 @@ const calculate = (self) => {
                     responses.notSolved[variable][exp] = responses.notSolved[variable][exp] || []
                     responses.notSolved[variable][exp].push(resp)
                 }
+                responses.sequence[variable] = responses.sequence[variable] || {}
+                responses.sequence[variable][exp] = responses.sequence[variable][exp] || []
+                responses.sequence[variable][exp].push(solved)
+                responses.sequence[variable][exp].push(resp)
+
             })
         
         }
