@@ -51,6 +51,7 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             >
                     </div> 
                 </div>
+                ${renderController({buttonAdd:'createVariableWindow()'})}
             `
         }
     }   

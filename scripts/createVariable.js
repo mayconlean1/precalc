@@ -15,7 +15,7 @@ const createVariableWindow=() =>{
         `
     }
 
-    openCloseMenu()  
+    //openCloseMenu()  
 }
 
 const closeNewVariable = () =>{

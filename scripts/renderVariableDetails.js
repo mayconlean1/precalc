@@ -24,6 +24,7 @@ const renderVaraibleDetails = (variable)=>{
             ${calculationsFields(variable)}
             </div>
         </div>
+        ${renderController({buttonAdd:'addCalculations(variable)'})}
         `
     }
     const calculationsFields=(variable)=>{

@@ -1,7 +1,7 @@
 const dataResults = {
-    // 'A' : '',
-    // 'B' : '',
-    // 'C': '',
+    'A' : '',
+    'B' : '',
+    'C': '',
 }
 const calculations = {
     // 'A': ['C + B' , 'B + 1' , 'D+2'],
@@ -23,8 +23,9 @@ let responses = {
     // }
 let currentVariable
 
-const addCalculations = (variable, calculation) =>{
-    calculations[variable] = calculation
+const addCalculations = (variable) =>{
+    // calculations[variable] = calculation
+    console.log(variable)
 }
 
 const renderMainDefault = () =>{
@@ -113,8 +114,6 @@ const update = () =>{
     })  
 }
 
-
-
 const deleteVariable=(variable)=>{
     delete dataResults[variable]
     delete calculations[variable]
@@ -124,5 +123,19 @@ const deleteVariable=(variable)=>{
 
     renderMainDefault()
     
+}
+
+const renderController = (data={buttonAdd:''}) =>{
+    const controller = `
+    <div class="controlBar">
+        <div class="controllerAdd" onclick="${data.buttonAdd}">Add</div>
+        <div class="controls">
+            <div class="controller" onclick="renderMainDefault()">back</div>
+            <div class="spacer"></div>
+            <div class="controller">next</div>
+        </div>
+    </div>
+    `
+    return controller
 }
 
