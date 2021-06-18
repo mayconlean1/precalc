@@ -4,15 +4,26 @@
     box-sizing: border-box;
 }
 
-body{
+ body{
     min-width: 200px;
-    max-width: 400px;
-    height: 100vh;
+    max-width: 390px;
+    height: 32rem;
     padding: 1rem;
     position: relative;
+    border: 1px solid grey;
+    
+
+} 
+
+@media screen and (max-height: 600px) {
+    body{
+        min-width: 200px;
+        max-width: 400px;
+        height: 100vh;
+        padding: 1rem;
+        position: relative;
+    }
 }
-
-
 
 input[type='text'],
 input[type='number']{

@@ -24,9 +24,11 @@ const renderVaraibleDetails = (variable)=>{
             ${calculationsFields(variable)}
             </div>
         </div>
-        ${renderController({buttonAdd:'addCalculations(variable)'})}
+        
         `
+
     }
+    //${renderController({buttonAdd:'addCalculations(variable)'})}
     const calculationsFields=(variable)=>{
         let fields = ''
         const varResponses = responses.sequence[variable]
@@ -44,7 +46,10 @@ const renderVaraibleDetails = (variable)=>{
         return fields
 
     }
-
-
     varaibleDetails(variable)
+}
+
+const addCalculations = (variable) =>{
+    // calculations[variable] = calculation
+    console.log(variable)
 }

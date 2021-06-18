@@ -1,4 +1,14 @@
 const createVariableWindow=() =>{
+    const createDivClassFirstChild= (SelectorOwnerElement='', classNewDiv='') =>{
+        const main = document.querySelector(SelectorOwnerElement)
+        const firstChild = main.firstChild
+        const div = document.createElement('div')
+        div.classList.add( classNewDiv)
+        main.insertBefore(div , firstChild)
+    }
+
+    createDivClassFirstChild('main' , 'newVariable')
+
     const divNewVariable = document.querySelector('.newVariable')
     if(divNewVariable.children.length == 0){
         divNewVariable.innerHTML = `
@@ -10,7 +20,7 @@ const createVariableWindow=() =>{
                 >Criar</div>
             <div 
                 id="btnCancelCreateVariable"
-                onclick ="closeNewVariable()"
+                onclick ="renderMainDefault()"
             >Cancelar</div>
         `
     }
@@ -18,16 +28,10 @@ const createVariableWindow=() =>{
     //openCloseMenu()  
 }
 
-const closeNewVariable = () =>{
-    const divNewVariable = document.querySelector('.newVariable')
-    divNewVariable.innerHTML = ''
-}
-
 const addNewVariable=()=>{
     const input = document.querySelector('#InputVariableName').value
     if (input !== '' && !input.includes(' ')){
         dataResults[input] = ''
-        closeNewVariable()
-        renderVariables()
+        renderMainDefault()
     }
 }

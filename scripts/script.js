@@ -2,6 +2,10 @@ const dataResults = {
     'A' : '',
     'B' : '',
     'C': '',
+    // 'D' : '',
+    // 'E' : '',
+    // 'F': '',
+    
 }
 const calculations = {
     // 'A': ['C + B' , 'B + 1' , 'D+2'],
@@ -23,15 +27,11 @@ let responses = {
     // }
 let currentVariable
 
-const addCalculations = (variable) =>{
-    // calculations[variable] = calculation
-    console.log(variable)
-}
+
 
 const renderMainDefault = () =>{
     const main = document.querySelector('main')
     main.innerHTML = `
-        <div class="newVariable"></div>
         <div class="fieldsVariableValues"></div>
     `
     renderVariables()
@@ -125,17 +125,5 @@ const deleteVariable=(variable)=>{
     
 }
 
-const renderController = (data={buttonAdd:''}) =>{
-    const controller = `
-    <div class="controlBar">
-        <div class="controllerAdd" onclick="${data.buttonAdd}">Add</div>
-        <div class="controls">
-            <div class="controller" onclick="renderMainDefault()">back</div>
-            <div class="spacer"></div>
-            <div class="controller">next</div>
-        </div>
-    </div>
-    `
-    return controller
-}
+
 
