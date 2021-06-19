@@ -1,13 +1,65 @@
-const renderControllerTeste = (data={buttonAdd:''}) =>{
+const renderController = (
+    control={
+        middleButton:{
+            nameButton:''
+        } , 
+        leftButton:{
+            nameButton:''
+        },
+        rightButton:{
+            nameButton:''
+        }
+}) =>{
+    const divControlBar = document.querySelector('.controlBar')
+
+    const createMiddleButton = (middleButton ={}) =>{
+        const buttonData = Object.entries(middleButton)
+        if (buttonData.length == 1){
+            const [buttonName, buttonFunction] = buttonData[0]
+            return `
+                <div 
+                    class="controllerMiddle" 
+                    onclick="${buttonFunction}">
+                    ${buttonName}
+                </div>`
+        }
+        else{
+            return''
+        }
+    }
+
+    const createButton = (button={})=>{
+        const btn = Object.entries(button)
+        if(btn.length == 1){
+            const [buttonName , buttonFunction] = btn[0]
+            return`
+                <div  
+                    class="controller" 
+                    onclick="${buttonFunction}"
+                    >${buttonName}
+                </div>
+            `
+        }else{
+            return`
+                <div class="controllerField"></div>
+            `
+        } 
+    }
+    
     const controller = `
-    <div class="controlBar">
-        <div class="controllerAdd" onclick="${data.buttonAdd}">Add</div>
+        ${createMiddleButton(control.middleButton)}
         <div class="controls">
-            <div class="controller" onclick="renderMainDefault()">back</div>
+
+            ${createButton(control.leftButton)}
+
             <div class="spacer"></div>
-            <div class="controller">next</div>
+
+            ${createButton(control.rightButton)}
+
+
         </div>
-    </div>
     `
-    return controller
+
+    divControlBar.innerHTML = controller
+    
 }

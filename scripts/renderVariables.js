@@ -7,6 +7,12 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
 
     const {toggle , reversedObject} = args
     if (toggle){
+        const controlBar = {
+            middleButton:{
+                'Add' : 'createVariableWindow()'
+            },
+
+        }
 
         const reverseObject = (data={}) =>{
             const dataKeys = Object.keys( data ).reverse()
@@ -53,7 +59,9 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                 </div>
                 
             `
-            //${renderController({buttonAdd:'createVariableWindow()'})}
+            //{buttonAdd:'createVariableWindow()'}
         }
+        renderController(controlBar)
+
     }   
 }

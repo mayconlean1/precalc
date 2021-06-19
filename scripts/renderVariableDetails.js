@@ -1,4 +1,12 @@
 const renderVaraibleDetails = (variable)=>{
+    const controlBar = {
+        middleButton:{
+            'Add' : `addCalculations('${variable}')`
+        },
+        leftButton:{
+            'Voltar' : 'renderMainDefault()'
+        },
+    }
     const varaibleDetails = (variable) =>{
         const main = document.querySelector('main')
         main.innerHTML = `
@@ -46,7 +54,9 @@ const renderVaraibleDetails = (variable)=>{
         return fields
 
     }
+
     varaibleDetails(variable)
+    renderController(controlBar)
 }
 
 const addCalculations = (variable) =>{

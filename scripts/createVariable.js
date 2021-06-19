@@ -1,4 +1,13 @@
 const createVariableWindow=() =>{
+    const controlBar = {
+        leftButton:{
+            'Voltar' : 'renderMainDefault()'
+        },
+        rightButton:{
+            'Confirmar' : 'addNewVariable()'
+        }
+
+    }
     const createDivClassFirstChild= (SelectorOwnerElement='', classNewDiv='') =>{
         const main = document.querySelector(SelectorOwnerElement)
         const firstChild = main.firstChild
@@ -6,10 +15,13 @@ const createVariableWindow=() =>{
         div.classList.add( classNewDiv)
         main.insertBefore(div , firstChild)
     }
+    let divNewVariable = document.querySelector('.newVariable')
+    if(divNewVariable === null){
+        createDivClassFirstChild('main' , 'newVariable')
+        divNewVariable = document.querySelector('.newVariable')
+    }
+    
 
-    createDivClassFirstChild('main' , 'newVariable')
-
-    const divNewVariable = document.querySelector('.newVariable')
     if(divNewVariable.children.length == 0){
         divNewVariable.innerHTML = `
             <span>Nome da Variavel</span>
@@ -24,7 +36,7 @@ const createVariableWindow=() =>{
             >Cancelar</div>
         `
     }
-
+    renderController(controlBar)
     //openCloseMenu()  
 }
 
