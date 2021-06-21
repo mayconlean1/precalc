@@ -8,9 +8,9 @@ const dataResults = {
     
 }
 const calculations = {
-    // 'A': ['C + B' , 'B + 1' , 'D+2'],
-    // 'B': ['A + C'],
-    // 'C': ['A + B']
+    'A': ['C + B' /*, 'B + 1' , 'D+2'*/],
+    'B': ['A + C'],
+    'C': ['A + B']
 }
 
 let varsFixed = []
@@ -124,6 +124,8 @@ const deleteVariable=(variable)=>{
     renderMainDefault()
     
 }
+
+
 
 
 

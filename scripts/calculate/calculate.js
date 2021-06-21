@@ -1,4 +1,21 @@
 const calculate = (self) => {
+    // let variableName
+    // if(typeof(self) === 'object'){
+    //     variableName = self.id.split('_').map( (pos , index) => index !== 0? pos : '').join('')
+
+    //     const input = self.value
+    //     dataResults[variableName] = input
+
+    // }else if (typeof(self) === 'string'){
+    //     variableName = self
+    // }
+    
+    // const vn = variableName
+
+    // variableCurrent = variableName
+
+
+
     const variableName = self.id.split('_').map( (pos , index) => index !== 0? pos : '').join('')
     const vn = variableName
     variableCurrent = variableName

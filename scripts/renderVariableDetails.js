@@ -1,7 +1,7 @@
 const renderVaraibleDetails = (variable)=>{
     const controlBar = {
         middleButton:{
-            'Add' : `addCalculations('${variable}')`
+            'Add' : `createCalculationWindow('${variable}')`
         },
         leftButton:{
             'Voltar' : 'renderMainDefault()'
@@ -28,6 +28,7 @@ const renderVaraibleDetails = (variable)=>{
             <div class="detailsHeader">
                 <h2 class="detailsVariableName">${variable}</h2>       
             </div>
+            
             <div class="detailsBody">
             ${calculationsFields(variable)}
             </div>
