@@ -1,4 +1,4 @@
-const renderVaraibleDetails = (variable)=>{
+const renderVariableDetails = (variable)=>{
     const controlBar = {
         middleButton:{
             'Add' : `createCalculationWindow('${variable}')`
@@ -60,7 +60,4 @@ const renderVaraibleDetails = (variable)=>{
     renderController(controlBar)
 }
 
-const addCalculations = (variable) =>{
-    // calculations[variable] = calculation
-    console.log(variable)
-}
+

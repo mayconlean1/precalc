@@ -8,7 +8,7 @@ const dataResults = {
     
 }
 const calculations = {
-    'A': ['C + B' /*, 'B + 1' , 'D+2'*/],
+    'A': ['C + B' , 'B + 1' , 'D+2'],
     'B': ['A + C'],
     'C': ['A + B']
 }
@@ -27,14 +27,13 @@ let responses = {
     // }
 let currentVariable
 
-
-
 const renderMainDefault = () =>{
     const main = document.querySelector('main')
     main.innerHTML = `
         <div class="fieldsVariableValues"></div>
     `
     renderVariables()
+    showResultsInInputs()
 }
 
 const toogleFixed = (variable, pushInArray = true) =>{
@@ -79,34 +78,7 @@ const toogleFixed = (variable, pushInArray = true) =>{
     
 }
 
-const getResults = {
-    uniqueResults (responses={}){
-    const solved = responses.solved
-    const res = {}
-    for(let variable in solved){
-        const results = solved[variable]
-
-        const tempComparison = []
-        for(let exp in results){
-            let result = results[exp]
-            if (result.length === 1){
-                result = result.join('')
-                tempComparison.push(result)
-            }
-            // console.log(result.length ,exp , result)
-        }
-        const tempComparisonFilter = tempComparison.filter(r => r != tempComparison[0])
-        const singleResponse = tempComparisonFilter.length === 0
-        if (singleResponse){
-            //console.log (variable,tempComparison[0], singleResponse)
-            res[variable] = tempComparison[0]
-        }
-    }
-    return res
-    },   
-}
-
-const update = () =>{
+const showResultsInInputs = () =>{
     const keys = Object.keys(dataResults)
     keys.forEach(key => {
         const inputs = document.querySelector(`#fieldInputVariable_${key}`)

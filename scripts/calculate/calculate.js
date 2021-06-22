@@ -1,30 +1,47 @@
 const calculate = (self) => {
-    // let variableName
-    // if(typeof(self) === 'object'){
-    //     variableName = self.id.split('_').map( (pos , index) => index !== 0? pos : '').join('')
 
-    //     const input = self.value
-    //     dataResults[variableName] = input
+    if(typeof(self) === 'object'){
 
-    // }else if (typeof(self) === 'string'){
-    //     variableName = self
+        const variableName = self.id.split('_').map( (pos , index) => index !== 0? pos : '').join('')
+        variableCurrent = variableName
+        const varValue = self.value
+        dataResults[variableName] = varValue
+        updateResponses()
+        updateDataResults()
+        showResultsInInputs()
+
+    }else if (typeof(self) === 'string'){
+
+        const variableName = self
+        variableCurrent = variableName
+        const varValue = self.value
+        dataResults[variableName] = varValue
+        updateResponses()
+        updateDataResults()
+    }
+     
+}
+
+const updateDataResults = () =>{
+    const updateDataRes = getResults.uniqueResults(responses)
+    // if (varsFixed > 1){
+    //     for (let varFixed of varsFixed){
+    //         delete updateDataRes[varFixed] 
+    //     }
     // }
-    
-    // const vn = variableName
+    //delete updateDataRes[variable] // deletar current
+    for(let vari in updateDataRes){
+        const result = updateDataRes[vari]
+        if(!varsFixed.includes(vari)){
 
-    // variableCurrent = variableName
+        // if(currentVariable != variable){
+            dataResults[vari] = result 
+        }
+    }
+}
 
-
-
-    const variableName = self.id.split('_').map( (pos , index) => index !== 0? pos : '').join('')
-    const vn = variableName
-    variableCurrent = variableName
-
-    const input = self.value
-
-    dataResults[vn] = input
+const updateResponses=()=>{
     const filtredCalculations = {...calculations} 
-    //delete filtredCalculations[vn]
     const resolvedExpressions = resolveAllExpressions(filtredCalculations , dataResults)
 
     const createObjectSolvedNotSolved = (resolvedExpressions) =>{
@@ -44,7 +61,7 @@ const calculate = (self) => {
                     responses.solved[variable][exp].push(resp)
     
                 }else{
-                      
+                    
                     responses.notSolved[variable] = responses.notSolved[variable] || {}
                     responses.notSolved[variable][exp] = responses.notSolved[variable][exp] || []
                     responses.notSolved[variable][exp].push(resp)
@@ -59,17 +76,32 @@ const calculate = (self) => {
         }
         return responses
     }
-
     responses = createObjectSolvedNotSolved(resolvedExpressions)
-    
-    const updateDataResults = getResults.uniqueResults(responses)
-    
-    delete updateDataResults[vn] // deletar current
-    for(let variable in updateDataResults){
-        const result = updateDataResults[variable]
-        if(currentVariable != variable){
-            dataResults[variable] = result 
+}
+
+const getResults = {
+    uniqueResults (responses={}){
+    const solved = responses.solved
+    const res = {}
+    for(let variable in solved){
+        const results = solved[variable]
+
+        const tempComparison = []
+        for(let exp in results){
+            let result = results[exp]
+            if (result.length === 1){
+                result = result.join('')
+                tempComparison.push(result)
+            }
+            // console.log(result.length ,exp , result)
+        }
+        const tempComparisonFilter = tempComparison.filter(r => r != tempComparison[0])
+        const singleResponse = tempComparisonFilter.length === 0
+        if (singleResponse){
+            //console.log (variable,tempComparison[0], singleResponse)
+            res[variable] = tempComparison[0]
         }
     }
-    update()
+    return res
+    },   
 }

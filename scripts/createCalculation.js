@@ -2,7 +2,7 @@ const createCalculationWindow=(variable)=>{
 
     const controlBar = {
         leftButton:{
-            Voltar : `renderVaraibleDetails('${variable}')`
+            Voltar : `renderVariableDetails('${variable}')`
         },
         rightButton:{
             Confirmar:`confirmCalculation('${variable}')`
@@ -36,7 +36,7 @@ const createCalculationWindow=(variable)=>{
     `
 }
 
-const confirmCalculation = (varaible) =>{
+const confirmCalculation = (variable) =>{
     const inputNewCalculation = document.querySelector('.inputNewCalculation').value
 
     if(inputNewCalculation != ''){
@@ -45,13 +45,9 @@ const confirmCalculation = (varaible) =>{
         } catch (error) {
             calculations[variable] =[inputNewCalculation]
         }
-     
-
-        // responses.sequence[variable] = {}
-        // responses.sequence[variable][inputNewCalculation] = [false , '']
-
-        calculate(varaible)
-        //renderVaraibleDetails(`${variable}`)
+    
+        calculate(variable)
+        renderVariableDetails(variable)
 
     }
 }
