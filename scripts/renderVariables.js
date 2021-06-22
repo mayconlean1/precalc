@@ -8,7 +8,7 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
     const {toggle , reversedObject} = args
     if (toggle){
         const controlBar = {
-            middleButton:{
+            rightButton:{
                 'Add' : 'createVariableWindow()'
             },
 

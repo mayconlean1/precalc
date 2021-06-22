@@ -55,27 +55,47 @@ const toogleFixed = (variable, pushInArray = true) =>{
             if (pushInArray){
                 varsFixed.forEach((v,i)=>{
                     if(v == variable){
-                        varsFixed.splice(0,1)
+                        varsFixed.splice(i,1)
                     }
                 })
             }
         }
 
         delVariableInArray(variable, pushInArray)
-
         idBtnFixed.classList.remove ('checked')
        
     }else{
+        
         const addVariableInArray = (variable, pushInArray)=>{
             if (pushInArray){
                 varsFixed.push(variable)
             }
         }
         addVariableInArray(variable, pushInArray)
-
         idBtnFixed.classList.add ('checked')
     }
-    
+
+    (handleControllerVarsFixed = ()=>{
+        if (varsFixed.length > 0){
+            const controlBar = {
+                rightButton:{
+                    'Add' : 'createVariableWindow()'
+                },
+                middleButton:{
+                    'Calc': `calculate(${currentVariable})`
+                }
+            }
+            renderController(controlBar)
+            
+        }else{
+            const controlBar = {
+                rightButton:{
+                    'Add' : 'createVariableWindow()'
+                },
+            }
+            renderController(controlBar)
+        }  
+    })()
 }
 
 const showResultsInInputs = () =>{

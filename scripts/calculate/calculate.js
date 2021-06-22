@@ -19,7 +19,6 @@ const calculate = (self) => {
         updateResponses()
         updateDataResults()
     }
-     
 }
 
 const updateDataResults = () =>{
