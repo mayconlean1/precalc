@@ -41,8 +41,9 @@ const updateDataResults = () =>{
 }
 
 const updateResponses=()=>{
-    const filtredCalculations = {...calculations} 
-    const resolvedExpressions = resolveAllExpressions(filtredCalculations , dataResults)
+    const filtredCalculations = {...calculations}
+    const tempDataResults = {...dataResults} 
+    const resolvedExpressions = resolveAllExpressions(filtredCalculations , tempDataResults)
 
     const createObjectSolvedNotSolved = (resolvedExpressions) =>{
         let responses = {

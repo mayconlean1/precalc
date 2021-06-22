@@ -12,7 +12,7 @@ const resolveExpression = (expression ='', dataToReplace = {} ) =>{
     const exp = expression
     const data = dataToReplace
 
-    for(i in data){
+    for(let i in data){
         if(data[i] == ''){
             delete data[i]
             //console.log('deletado')
@@ -55,7 +55,7 @@ const resolveExpression = (expression ='', dataToReplace = {} ) =>{
 
     const assignValues = (dataObject={}, stringSpaced='')=>{
         let assignedValues = stringSpaced.split(' ')
-        for (key in dataObject){
+        for (let key in dataObject){
             assignedValues = assignedValues.map((element ) => String(element) === String(key) ? dataObject[key] : element)
         };
         assignedValues = assignedValues.join(' ')
