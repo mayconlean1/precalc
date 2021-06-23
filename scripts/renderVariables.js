@@ -22,11 +22,13 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
             return reverseData
         }
 
+
         const field = document.querySelector('.fieldsVariableValues')
         field.innerHTML = ''
         const datas = reversedObject ? reverseObject(dataResults) : dataResults
 
         for (variable in datas){
+
             field.innerHTML += `
                 <div class="fieldVariable">
                     <input
@@ -34,7 +36,13 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                         class = 'checkboxFixed' 
                         type="checkbox"  
                         hidden>
-                    <span id='variableName' > ${variable} </span>
+                    <div class='headerVariableName'>
+                        <span id='variableName' > ${variable} </span>
+                        <div 
+                        id='variableSolvedStatus_${variable}'
+                        class = 'variableSolvedStatus'
+                        ></div>
+                    </div>
                     <div class="inputs fieldVariableButtons">
                         <input
                             class = 'fieldInputVariable' 
@@ -59,7 +67,6 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                 </div>
                 
             `
-            //{buttonAdd:'createVariableWindow()'}
         }
         renderController(controlBar)
 

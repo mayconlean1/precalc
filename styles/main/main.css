@@ -11,11 +11,36 @@ main{
 
 }
 
+.fieldVariable{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    
+}
+
 .fieldVariable + 
 .fieldVariable{
-    margin-top: 1rem;
+    margin-top: 0.1rem;
 }
 
 .checked {
     background-color:lightgreen;   
+}
+
+.currentVariable{
+    border: 1px solid grey;
+}
+
+.varSolved{
+    background-color:rgba(183, 219, 231, 0.3);
+}
+
+.headerVariableName{
+    width: 100%;
+    display: flex;
+    
+}
+
+.variableSolvedStatus{
+    width: 100%;
+    text-align: center;
 }

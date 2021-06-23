@@ -75,7 +75,7 @@ const toogleFixed = (variable, pushInArray = true) =>{
         idBtnFixed.classList.add ('checked')
     }
 
-    (handleControllerVarsFixed = ()=>{
+    (handleControllerWithToggle = ()=>{
         if (varsFixed.length > 0){
             const controlBar = {
                 rightButton:{
@@ -100,11 +100,38 @@ const toogleFixed = (variable, pushInArray = true) =>{
 
 const showResultsInInputs = () =>{
     const keys = Object.keys(dataResults)
-    keys.forEach(key => {
-        const inputs = document.querySelector(`#fieldInputVariable_${key}`)
-        inputs.value = dataResults[key]
+
+    const resetAllResultsStatus = ()=>{
+        const solvedStatus = document.querySelectorAll(`.variableSolvedStatus`)
+        solvedStatus.forEach(div =>{
+            div.textContent = ''
+            div.parentElement.classList.remove('varSolved')
+        })
+        
+    }
+    resetAllResultsStatus()
+
+    keys.forEach(variable => {
+        const inputs = document.querySelector(`#fieldInputVariable_${variable}`)
+        inputs.value = dataResults[variable]
+
+
+        if (responses.solved[variable]){
+            (showResStatusGreaterThan1 = (variable)=>{
+                const varSolvedlenght = Object.values(responses.solved[variable]).length
+
+                if(varSolvedlenght > 1){
+                    const solvedStatus = document.querySelector(`#variableSolvedStatus_${variable}`)
+                    solvedStatus.textContent = `${varSolvedlenght} resultados`
+                    solvedStatus.parentElement.classList.add('varSolved')
+            }
+            })(variable)
+    
+        }
     })  
 }
+
+
 
 const deleteVariable=(variable)=>{
     delete dataResults[variable]

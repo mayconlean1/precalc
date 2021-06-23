@@ -23,17 +23,11 @@ const calculate = (self) => {
 
 const updateDataResults = () =>{
     const updateDataRes = getResults.uniqueResults(responses)
-    // if (varsFixed > 1){
-    //     for (let varFixed of varsFixed){
-    //         delete updateDataRes[varFixed] 
-    //     }
-    // }
-    //delete updateDataRes[variable] // deletar current
+    
     for(let vari in updateDataRes){
         const result = updateDataRes[vari]
         if(!varsFixed.includes(vari)){
 
-        // if(currentVariable != variable){
             dataResults[vari] = result 
         }
     }
