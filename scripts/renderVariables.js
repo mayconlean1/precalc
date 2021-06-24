@@ -30,7 +30,7 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
         for (variable in datas){
 
             field.innerHTML += `
-                <div class="fieldVariable">
+                <div class="fieldVariable" onclick='highlightCurrentVar(this, "${variable}")'>
                     <input
                         id = 'checkbox_${variable}'
                         class = 'checkboxFixed' 
@@ -49,7 +49,9 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             type="number" 
                             name="fieldInputVariable_${variable}" 
                             id="fieldInputVariable_${variable}"
-                            onchange="calculate(this)">
+                            onchange="calculate(this)"
+                            onkeyup= "keyupDiv(this)"
+                            >
                         <input
                             id = 'btnFixed_${variable}'
                             type="button" 

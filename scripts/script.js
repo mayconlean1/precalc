@@ -82,7 +82,7 @@ const toogleFixed = (variable, pushInArray = true) =>{
                     'Add' : 'createVariableWindow()'
                 },
                 middleButton:{
-                    'Calc': `calculate(${currentVariable})`
+                    'Calc': `calculate('${currentVariable}')`
                 }
             }
             renderController(controlBar)
@@ -124,14 +124,13 @@ const showResultsInInputs = () =>{
                     const solvedStatus = document.querySelector(`#variableSolvedStatus_${variable}`)
                     solvedStatus.textContent = `${varSolvedlenght} resultados`
                     solvedStatus.parentElement.classList.add('varSolved')
+                    
             }
             })(variable)
     
         }
     })  
 }
-
-
 
 const deleteVariable=(variable)=>{
     delete dataResults[variable]
@@ -142,6 +141,17 @@ const deleteVariable=(variable)=>{
 
     renderMainDefault()
     
+}
+
+const highlightCurrentVar = (self , variable) =>{
+    (removeAllHighlights=()=>{
+        const allFields = document.querySelectorAll('.fieldVariable')
+        allFields.forEach(div => {
+            div.classList.remove('currentVariable')
+        });        
+    })()
+    self.classList.add('currentVariable')
+    currentVariable = variable
 }
 
 

@@ -21,6 +21,18 @@ const calculate = (self) => {
     }
 }
 
+const initDebounce = ( fn,wait=1000,time) =>{
+    return (self) =>{
+        clearTimeout(time)
+        time = setTimeout(()=>fn(self),wait)
+    }
+}
+const debounce = initDebounce(calculate)
+
+const keyupDiv = (self)=>{
+    debounce(self)
+}
+
 const updateDataResults = () =>{
     const updateDataRes = getResults.uniqueResults(responses)
     
