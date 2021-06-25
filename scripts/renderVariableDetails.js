@@ -44,7 +44,8 @@ const renderVariableDetails = (variable)=>{
         for (calc in varResponses){
             const [solved , response] = varResponses[calc]
             fields += `
-                <div id='calculationValue_${calc}'  
+                <div id='calculationValue_${calc}'
+                onclick='selectCalculations(this ,"${variable}" ,"${calc}" , "${response}")' 
                 class="calcultationField ${solved? 'calcSolved' : 'calcNotSolved'}">
                     <div id='calculationValue_${calc}'
                     class="calculationValue">${calc}</div>

@@ -12,6 +12,7 @@ const calculations = {
     'B': ['A + C'],
     'C': ['A + B']
 }
+const selectedCalculations = {}
 
 let varsFixed = []
 let responses = {
@@ -27,13 +28,42 @@ let responses = {
     // }
 let currentVariable
 
+const selectCalculations = (self , variable, calc, response) =>{
+    const div = self
+    
+    const toggleBorder = (self) =>{
+        const divClass = Object.values(self.classList)
+        if (divClass.includes('selected')){
+            self.classList.remove('selected')
+        }else{
+            self.classList.add('selected')
+        }
+    
+    }
+    toggleBorder(self)
+
+    const addDeleteInSelectedCalculations = (variable , calc , response)=>{
+        selectedCalculations[variable] = selectedCalculations[variable] || {}
+        if (selectedCalculations[variable][calc] == undefined){
+            selectedCalculations[variable][calc] = response
+
+        }else{
+            delete selectedCalculations[variable][calc]
+        }
+    }
+    addDeleteInSelectedCalculations(variable , calc , response)
+}
+
 const renderMainDefault = () =>{
     const main = document.querySelector('main')
     main.innerHTML = `
         <div class="fieldsVariableValues"></div>
     `
     renderVariables()
-    varsFixed.forEach(varFixed => toogleFixed(varFixed,false))
+    const renderVarsFixed = ()=>{
+        varsFixed.forEach(varFixed => toogleFixed(varFixed,false))
+    }
+    renderVarsFixed()
     showResultsInInputs()
 }
 
@@ -143,6 +173,7 @@ const deleteVariable=(variable)=>{
     delete responses.solved[variable]
     delete responses.notSolved[variable]
     delete responses.sequence[variable]
+    delete selectedCalculations[variable]
 
     renderMainDefault()
     
