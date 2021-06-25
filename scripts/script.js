@@ -64,6 +64,7 @@ const renderMainDefault = () =>{
         varsFixed.forEach(varFixed => toogleFixed(varFixed,false))
     }
     renderVarsFixed()
+    highlightCurrentVar(currentVariable)
     showResultsInInputs()
 }
 
@@ -179,15 +180,20 @@ const deleteVariable=(variable)=>{
     
 }
 
-const highlightCurrentVar = (self , variable) =>{
-    (removeAllHighlights=()=>{
+const highlightCurrentVar = (variable) =>{
+    const vr = `.${variable}`
+    const fieldVariable = document.querySelector(vr)
+    removeAllHighlights=()=>{
         const allFields = document.querySelectorAll('.fieldVariable')
         allFields.forEach(div => {
             div.classList.remove('currentVariable')
         });        
-    })()
-    self.classList.add('currentVariable')
-    currentVariable = variable
+    }
+    removeAllHighlights()
+    try{
+        fieldVariable.classList.add('currentVariable')
+        currentVariable = variable
+    }catch{}
 }
 
 

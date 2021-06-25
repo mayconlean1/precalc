@@ -30,7 +30,9 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
         for (variable in datas){
 
             field.innerHTML += `
-                <div class="fieldVariable" onclick='highlightCurrentVar(this, "${variable}")'>
+                <div class="fieldVariable ${variable}" 
+                
+                onclick='highlightCurrentVar("${variable}")'>
                     <input
                         id = 'checkbox_${variable}'
                         class = 'checkboxFixed' 
