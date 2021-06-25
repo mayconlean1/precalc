@@ -33,6 +33,7 @@ const renderMainDefault = () =>{
         <div class="fieldsVariableValues"></div>
     `
     renderVariables()
+    varsFixed.forEach(varFixed => toogleFixed(varFixed,false))
     showResultsInInputs()
 }
 

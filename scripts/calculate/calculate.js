@@ -1,6 +1,7 @@
 const calculate = (self) => {
 
     if(typeof(self) === 'object'){
+        
         const variableName = self.id.split('_').map( (pos , index) => index !== 0? pos : '').join('')
         variableCurrent = variableName
         const varValue = self.value
@@ -17,7 +18,9 @@ const calculate = (self) => {
         dataResults[variableName] = varValue
         updateResponses()
         updateDataResults()
+
     }else if (typeof(self) === 'undefined'){
+
         updateResponses()
         updateDataResults()
         showResultsInInputs()
