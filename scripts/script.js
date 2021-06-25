@@ -82,7 +82,7 @@ const toogleFixed = (variable, pushInArray = true) =>{
                     'Add' : 'createVariableWindow()'
                 },
                 middleButton:{
-                    'Calc': `calculate('${currentVariable}')`
+                    'Calc': `calculate()`
                 }
             }
             renderController(controlBar)
@@ -101,7 +101,7 @@ const toogleFixed = (variable, pushInArray = true) =>{
 const showResultsInInputs = () =>{
     const keys = Object.keys(dataResults)
 
-    const resetAllResultsStatus = ()=>{
+    const clearAllResultsStatus = ()=>{
         const solvedStatus = document.querySelectorAll(`.variableSolvedStatus`)
         solvedStatus.forEach(div =>{
             div.textContent = ''
@@ -109,12 +109,17 @@ const showResultsInInputs = () =>{
         })
         
     }
-    resetAllResultsStatus()
+    clearAllResultsStatus()
+
+    const clearAllInputsField = () =>{
+        const fields = document.querySelectorAll('.fieldInputVariable')
+        fields.value = ''
+    }
+    clearAllInputsField()
 
     keys.forEach(variable => {
         const inputs = document.querySelector(`#fieldInputVariable_${variable}`)
-        inputs.value = dataResults[variable]
-
+        inputs.value = dataResults[variable] || ''
 
         if (responses.solved[variable]){
             (showResStatusGreaterThan1 = (variable)=>{
@@ -123,8 +128,7 @@ const showResultsInInputs = () =>{
                 if(varSolvedlenght > 1){
                     const solvedStatus = document.querySelector(`#variableSolvedStatus_${variable}`)
                     solvedStatus.textContent = `${varSolvedlenght} resultados`
-                    solvedStatus.parentElement.classList.add('varSolved')
-                    
+                    solvedStatus.parentElement.classList.add('varSolved')      
             }
             })(variable)
     

@@ -1,7 +1,6 @@
 const calculate = (self) => {
 
     if(typeof(self) === 'object'){
-
         const variableName = self.id.split('_').map( (pos , index) => index !== 0? pos : '').join('')
         variableCurrent = variableName
         const varValue = self.value
@@ -18,10 +17,14 @@ const calculate = (self) => {
         dataResults[variableName] = varValue
         updateResponses()
         updateDataResults()
+    }else if (typeof(self) === 'undefined'){
+        updateResponses()
+        updateDataResults()
+        showResultsInInputs()
     }
 }
 
-const initDebounce = ( fn,wait=1000,time) =>{
+const initDebounce = ( fn,wait=600,time) =>{
     return (self) =>{
         clearTimeout(time)
         time = setTimeout(()=>fn(self),wait)
@@ -87,27 +90,27 @@ const updateResponses=()=>{
 
 const getResults = {
     uniqueResults (responses={}){
-    const solved = responses.solved
-    const res = {}
-    for(let variable in solved){
-        const results = solved[variable]
+        const solved = responses.solved
+        const res = {}
+        for(let variable in solved){
+            const results = solved[variable]
 
-        const tempComparison = []
-        for(let exp in results){
-            let result = results[exp]
-            if (result.length === 1){
-                result = result.join('')
-                tempComparison.push(result)
+            const tempComparison = []
+            for(let exp in results){
+                let result = results[exp]
+                if (result.length === 1){
+                    result = result.join('')
+                    tempComparison.push(result)
+                }
+                // console.log(result.length ,exp , result)
             }
-            // console.log(result.length ,exp , result)
+            const tempComparisonFilter = tempComparison.filter(r => r != tempComparison[0])
+            const singleResponse = tempComparisonFilter.length === 0
+            if (singleResponse){
+                //console.log (variable,tempComparison[0], singleResponse)
+                res[variable] = tempComparison[0]
+            }
         }
-        const tempComparisonFilter = tempComparison.filter(r => r != tempComparison[0])
-        const singleResponse = tempComparisonFilter.length === 0
-        if (singleResponse){
-            //console.log (variable,tempComparison[0], singleResponse)
-            res[variable] = tempComparison[0]
-        }
-    }
-    return res
+        return res
     },   
 }
