@@ -20,10 +20,29 @@ const calculate = (self) => {
         updateDataResults()
 
     }else if (typeof(self) === 'undefined'){
-
+        const inputs = document.querySelectorAll('.fieldInputVariable')
+        inputs.forEach(input => {
+            const variable = input.parentNode.parentNode.classList[1]
+            const value = input.value
+            // console.log (variable,value)
+            dataResults[variable] = value
+        })
+        // console.log (inputs[0].value)
         updateResponses()
         updateDataResults()
         showResultsInInputs()
+        // const handleSelectedResults = ()=>{
+        //     for(let variable in selectedCalculations){
+        //         const data = selectedCalculations[variable]
+        //         const [calculation,resp] = Object.entries(data)[0]
+        //         const input = document.querySelector(`#fieldInputVariable_${variable}`)
+        //         // console.log(input , variable ,resp)
+        //         input.value = resp
+        //         dataResults[variable] = resp
+        //     }
+        // }
+        // handleSelectedResults()
+
     }
 }
 

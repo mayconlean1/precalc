@@ -11,7 +11,9 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
             rightButton:{
                 'Add' : 'createVariableWindow()'
             },
-
+            middleButton:{
+                'Calc': `calculate()`
+            }
         }
 
         const reverseObject = (data={}) =>{
@@ -51,8 +53,6 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             type="number" 
                             name="fieldInputVariable_${variable}" 
                             id="fieldInputVariable_${variable}"
-                            onchange="calculate(this)"
-                            onkeyup= "keyupDiv(this)"
                             >
                         <input
                             id = 'btnFixed_${variable}'
@@ -76,3 +76,13 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
 
     }   
 }
+
+{/* <div class="inputs fieldVariableButtons">
+<input
+class = 'fieldInputVariable' 
+type="number" 
+name="fieldInputVariable_${variable}" 
+id="fieldInputVariable_${variable}"
+onchange="calculate(this)"
+onkeyup= "keyupDiv(this)"
+></input> */}

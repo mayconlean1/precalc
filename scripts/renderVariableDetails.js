@@ -58,7 +58,29 @@ const renderVariableDetails = (variable)=>{
     }
 
     varaibleDetails(variable)
+    addBorderInVariableDetails(variable)
     renderController(controlBar)
+    
+}
+
+const addBorderInVariableDetails= ()=>{
+    const removeAllBorders = ()=>{
+        const fields = document.querySelectorAll('.calcultationField')
+        fields.forEach(field =>{
+            field.classList.remove('selected')
+        })
+    }
+    const addBorder = ()=>{
+        for (let variabl in selectedCalculations){
+            const calc = selectedCalculations[variabl][0]
+            if (calc != null){
+                const calcDiv = document.getElementById(`calculationValue_${calc}`)
+                calcDiv.classList.add('selected')
+            }
+        }
+    }
+    removeAllBorders()
+    addBorder()
 }
 
 

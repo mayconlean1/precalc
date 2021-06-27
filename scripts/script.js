@@ -12,7 +12,7 @@ const calculations = {
     'B': ['A + C'],
     'C': ['A + B']
 }
-const selectedCalculations = {}
+let selectedCalculations = {} //{A : [calc : resp]}
 
 let varsFixed = []
 let responses = {
@@ -29,29 +29,27 @@ let responses = {
 let currentVariable
 
 const selectCalculations = (self , variable, calc, response) =>{
-    const div = self
-    
-    const toggleBorder = (self) =>{
-        const divClass = Object.values(self.classList)
-        if (divClass.includes('selected')){
-            self.classList.remove('selected')
-        }else{
-            self.classList.add('selected')
-        }
-    
-    }
-    toggleBorder(self)
-
     const addDeleteInSelectedCalculations = (variable , calc , response)=>{
-        selectedCalculations[variable] = selectedCalculations[variable] || {}
-        if (selectedCalculations[variable][calc] == undefined){
-            selectedCalculations[variable][calc] = response
-
+        
+        selectedCalculations[variable] = selectedCalculations[variable] || []
+        const tempLength = selectedCalculations[variable].length
+        
+        if (tempLength == 0){
+            selectedCalculations = {}
+            selectedCalculations[variable]=[calc , response]
         }else{
-            delete selectedCalculations[variable][calc]
+            const tempCalc = selectedCalculations[variable][0]
+            selectedCalculations = {}
+            if(tempCalc == calc){
+                selectedCalculations[variable] = []
+            }else{
+                selectedCalculations[variable]=[calc , response]
+            }
         }
+
     }
     addDeleteInSelectedCalculations(variable , calc , response)
+    addBorderInVariableDetails()
 }
 
 const renderMainDefault = () =>{
@@ -109,15 +107,15 @@ const toogleFixed = (variable, pushInArray = true) =>{
 
     (handleControllerWithToggle = ()=>{
         if (varsFixed.length > 0){
-            const controlBar = {
-                rightButton:{
-                    'Add' : 'createVariableWindow()'
-                },
-                middleButton:{
-                    'Calc': `calculate()`
-                }
-            }
-            renderController(controlBar)
+            // const controlBar = {
+            //     rightButton:{
+            //         'Add' : 'createVariableWindow()'
+            //     },
+            //     middleButton:{
+            //         'Calc': `calculate()`
+            //     }
+            // }
+            // renderController(controlBar)
             
         }else{
             const controlBar = {
