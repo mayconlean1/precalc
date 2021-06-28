@@ -20,29 +20,30 @@ const calculate = (self) => {
         updateDataResults()
 
     }else if (typeof(self) === 'undefined'){
-        const inputs = document.querySelectorAll('.fieldInputVariable')
-        inputs.forEach(input => {
-            const variable = input.parentNode.parentNode.classList[1]
-            const value = input.value
-            // console.log (variable,value)
-            dataResults[variable] = value
-        })
-        // console.log (inputs[0].value)
+
+        const addInputValuesInDataResults = ()=>{
+            const inputs = document.querySelectorAll('.fieldInputVariable')
+            inputs.forEach(input => {
+                const variable = input.parentNode.parentNode.classList[1]
+                const value = input.value
+                dataResults[variable] = value
+            })
+        }
+
+        const clearAllFields = ()=>{
+            const inputs = document.querySelectorAll('.fieldInputVariable')
+            inputs.forEach(input => {               
+                input.value = ''
+                input.placeholder = ''
+            })
+        }
+
+        addInputValuesInDataResults()
+        clearAllFields()
         updateResponses()
         updateDataResults()
         showResultsInInputs()
-        // const handleSelectedResults = ()=>{
-        //     for(let variable in selectedCalculations){
-        //         const data = selectedCalculations[variable]
-        //         const [calculation,resp] = Object.entries(data)[0]
-        //         const input = document.querySelector(`#fieldInputVariable_${variable}`)
-        //         // console.log(input , variable ,resp)
-        //         input.value = resp
-        //         dataResults[variable] = resp
-        //     }
-        // }
-        // handleSelectedResults()
-
+        showSelectedResults()
     }
 }
 
@@ -135,4 +136,52 @@ const getResults = {
         }
         return res
     },   
+}
+
+
+const showResultsInInputs = () =>{
+    const keys = Object.keys(dataResults)
+
+    const clearAllResultsStatus = ()=>{
+        const solvedStatus = document.querySelectorAll(`.variableSolvedStatus`)
+        solvedStatus.forEach(div =>{
+            div.textContent = ''
+            div.parentElement.classList.remove('varSolved')
+        })
+        
+    }
+    clearAllResultsStatus()
+
+    const clearAllInputsField = () =>{
+        const fields = document.querySelectorAll('.fieldInputVariable')
+        fields.value = ''
+    }
+    clearAllInputsField()
+
+    keys.forEach(variable => {
+        const inputs = document.querySelector(`#fieldInputVariable_${variable}`)
+        inputs.value = dataResults[variable] || ''
+
+        if (responses.solved[variable]){
+            (showResStatusGreaterThan1 = (variable)=>{
+                const varSolvedlenght = Object.values(responses.solved[variable]).length
+
+                if(varSolvedlenght > 1){
+                    const solvedStatus = document.querySelector(`#variableSolvedStatus_${variable}`)
+                    solvedStatus.textContent = `${varSolvedlenght} resultados`
+                    solvedStatus.parentElement.classList.add('varSolved')      
+            }
+            })(variable)
+    
+        }
+    })  
+}
+
+const showSelectedResults = ()=>{
+    for(let variable in selectedCalculations){
+        const [calculation,resp] = selectedCalculations[variable]
+        const input = document.getElementById(`fieldInputVariable_${variable}`)
+        input.value = resp
+        input.placeholder =  calculation
+    }
 }

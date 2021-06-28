@@ -64,6 +64,7 @@ const renderMainDefault = () =>{
     renderVarsFixed()
     highlightCurrentVar(currentVariable)
     showResultsInInputs()
+    showSelectedResults()
 }
 
 const toogleFixed = (variable, pushInArray = true) =>{
@@ -128,43 +129,6 @@ const toogleFixed = (variable, pushInArray = true) =>{
     })()
 }
 
-const showResultsInInputs = () =>{
-    const keys = Object.keys(dataResults)
-
-    const clearAllResultsStatus = ()=>{
-        const solvedStatus = document.querySelectorAll(`.variableSolvedStatus`)
-        solvedStatus.forEach(div =>{
-            div.textContent = ''
-            div.parentElement.classList.remove('varSolved')
-        })
-        
-    }
-    clearAllResultsStatus()
-
-    const clearAllInputsField = () =>{
-        const fields = document.querySelectorAll('.fieldInputVariable')
-        fields.value = ''
-    }
-    clearAllInputsField()
-
-    keys.forEach(variable => {
-        const inputs = document.querySelector(`#fieldInputVariable_${variable}`)
-        inputs.value = dataResults[variable] || ''
-
-        if (responses.solved[variable]){
-            (showResStatusGreaterThan1 = (variable)=>{
-                const varSolvedlenght = Object.values(responses.solved[variable]).length
-
-                if(varSolvedlenght > 1){
-                    const solvedStatus = document.querySelector(`#variableSolvedStatus_${variable}`)
-                    solvedStatus.textContent = `${varSolvedlenght} resultados`
-                    solvedStatus.parentElement.classList.add('varSolved')      
-            }
-            })(variable)
-    
-        }
-    })  
-}
 
 const deleteVariable=(variable)=>{
     delete dataResults[variable]
