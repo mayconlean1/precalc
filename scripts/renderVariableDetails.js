@@ -1,6 +1,6 @@
 const renderVariableDetails = (variable)=>{
     const controlBar = {
-        middleButton:{
+        rightButton:{
             'Add' : `createCalculationWindow('${variable}')`
         },
         leftButton:{
@@ -57,9 +57,9 @@ const renderVariableDetails = (variable)=>{
 
     }
 
+    renderController(controlBar)
     varaibleDetails(variable)
     addBorderInVariableDetails(variable)
-    renderController(controlBar)
     
 }
 
@@ -73,8 +73,8 @@ const addBorderInVariableDetails= ()=>{
     const addBorder = ()=>{
         for (let variabl in selectedCalculations){
             const calc = selectedCalculations[variabl][0]
-            if (calc != null){
-                const calcDiv = document.getElementById(`calculationValue_${calc}`)
+            const calcDiv = document.getElementById(`calculationValue_${calc}`)
+            if (calcDiv != null){
                 calcDiv.classList.add('selected')
             }
         }

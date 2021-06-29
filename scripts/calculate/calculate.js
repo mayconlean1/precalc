@@ -42,8 +42,28 @@ const calculate = (self) => {
         clearAllFields()
         updateResponses()
         updateDataResults()
+        updateSelectedCalculations()
         showResultsInInputs()
         showSelectedResults()
+    }
+}
+
+const updateSelectedCalculations = () =>{
+    for(variable in selectedCalculations){
+        const [calc] = selectedCalculations[variable]
+        try{
+            const newResp = responses.sequence[variable][calc][1]
+            selectedCalculations[variable] = [calc , newResp]
+        }catch{} 
+    }
+}
+
+const showSelectedResults = ()=>{
+    for(let variable in selectedCalculations){
+        const [calculation,resp] = selectedCalculations[variable]
+        const input = document.getElementById(`fieldInputVariable_${variable}`)
+        input.value = varsFixed.includes(variable)? dataResults[variable] : resp
+        input.placeholder =  calculation
     }
 }
 
@@ -177,11 +197,3 @@ const showResultsInInputs = () =>{
     })  
 }
 
-const showSelectedResults = ()=>{
-    for(let variable in selectedCalculations){
-        const [calculation,resp] = selectedCalculations[variable]
-        const input = document.getElementById(`fieldInputVariable_${variable}`)
-        input.value = resp
-        input.placeholder =  calculation
-    }
-}

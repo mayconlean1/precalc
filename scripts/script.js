@@ -12,7 +12,7 @@ const calculations = {
     'B': ['A + C'],
     'C': ['A + B']
 }
-let selectedCalculations = {} //{A : [calc : resp]}
+let selectedCalculations = {} //{A : [calc , resp]}
 
 let varsFixed = []
 let responses = {
@@ -35,11 +35,11 @@ const selectCalculations = (self , variable, calc, response) =>{
         const tempLength = selectedCalculations[variable].length
         
         if (tempLength == 0){
-            selectedCalculations = {}
+            delete selectedCalculations[variable]
             selectedCalculations[variable]=[calc , response]
         }else{
             const tempCalc = selectedCalculations[variable][0]
-            selectedCalculations = {}
+            delete selectedCalculations[variable]
             if(tempCalc == calc){
                 selectedCalculations[variable] = []
             }else{
@@ -106,7 +106,7 @@ const toogleFixed = (variable, pushInArray = true) =>{
         idBtnFixed.classList.add ('checked')
     }
 
-    (handleControllerWithToggle = ()=>{
+    handleControllerWithToggle = ()=>{
         if (varsFixed.length > 0){
             // const controlBar = {
             //     rightButton:{
@@ -119,14 +119,14 @@ const toogleFixed = (variable, pushInArray = true) =>{
             // renderController(controlBar)
             
         }else{
-            const controlBar = {
-                rightButton:{
-                    'Add' : 'createVariableWindow()'
-                },
-            }
-            renderController(controlBar)
+            // const controlBar = {
+            //     rightButton:{
+            //         'Add' : 'createVariableWindow()'
+            //     },
+            // }
+            // renderController(controlBar)
         }  
-    })()
+    }
 }
 
 
