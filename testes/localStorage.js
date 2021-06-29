@@ -12,3 +12,12 @@ const teste1 = () =>{
 const teste2 = ()=>{
     location.reload()
 }
+
+//localStorage.removeItem(key);
+//localStorage.clear();
+
+// setItem(): Add key and value to localStorage
+// getItem(): Retrieve a value by the key from localStorage
+// removeItem(): Remove an item by key from localStorage
+// clear(): Clear all localStorage
+// key(): Passed a number to retrieve nth key of a localStorage
