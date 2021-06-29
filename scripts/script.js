@@ -1,13 +1,13 @@
-const dataResults = {
+let dataResults = {
     'A' : '',
     'B' : '',
     'C': '',
-    'D' : '',
+    // 'D' : '',
     // 'E' : '',
     // 'F': '',
     
 }
-const calculations = {
+let calculations = {
     'A': ['C + B' , 'B + 1' , 'D+2'],
     'B': ['A + C'],
     'C': ['A + B']
@@ -27,6 +27,7 @@ let responses = {
         
     // }
 let currentVariable
+
 
 const selectCalculations = (self , variable, calc, response) =>{
     const addDeleteInSelectedCalculations = (variable , calc , response)=>{
@@ -48,8 +49,21 @@ const selectCalculations = (self , variable, calc, response) =>{
         }
 
     }
+
+    const deleteEmptyVars = () =>{
+        const emptyVars = []
+        for (let variable in selectedCalculations){
+            const calcs = selectedCalculations[variable]
+            if (calcs.length == 0){
+                emptyVars.push(variable)
+            }
+        }
+        emptyVars.forEach(variable => delete selectedCalculations[variable])
+    }
+
     addDeleteInSelectedCalculations(variable , calc , response)
     addBorderInVariableDetails()
+    deleteEmptyVars()
 }
 
 const renderMainDefault = () =>{
@@ -129,7 +143,6 @@ const toogleFixed = (variable, pushInArray = true) =>{
     }
 }
 
-
 const deleteVariable=(variable)=>{
     delete dataResults[variable]
     delete calculations[variable]
@@ -137,9 +150,21 @@ const deleteVariable=(variable)=>{
     delete responses.notSolved[variable]
     delete responses.sequence[variable]
     delete selectedCalculations[variable]
+    renderMainDefault()  
+}
 
-    renderMainDefault()
-    
+const clearAllDatas = () =>{
+    dataResults = {}
+    calculations = {}
+    selectedCalculations = {}
+    varsFixed = []
+    responses = {solved:{} , notSolved:{} , sequence:{}}
+    currentVariable = undefined
+}
+
+const clearFields = () =>{
+    const fields = document.querySelectorAll('.fieldInputVariable')
+    fields.forEach(field => field.value = '')
 }
 
 const highlightCurrentVar = (variable) =>{

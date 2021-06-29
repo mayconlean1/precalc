@@ -63,7 +63,7 @@ const showSelectedResults = ()=>{
         const [calculation,resp] = selectedCalculations[variable]
         const input = document.getElementById(`fieldInputVariable_${variable}`)
         input.value = varsFixed.includes(variable)? dataResults[variable] : resp
-        input.placeholder =  calculation
+        input.placeholder =  calculation == undefined? '':calculation
     }
 }
 

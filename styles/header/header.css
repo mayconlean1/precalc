@@ -4,9 +4,32 @@ header{
     height: 3rem;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    /* position: relative; */
     padding-bottom: 0.7rem;
 }
 h1{
     font-size: 1.4rem;
+}
+
+#idProfile{
+    display: flex;
+    padding:0.1rem;
+    margin-left: 1rem;
+    height: 100%;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+    /* background-color:black; */
+}
+
+#idProfile>div{
+    text-align:center;
+    padding: 0.6rem;
+    height:100%;
+    width: 100%;
+    border-radius: 1rem;
+    background-color:rgba(173, 216, 230, 0.6);
+    border-color: lightblue;
+    overflow: hidden;
+    cursor: pointer;    
 }

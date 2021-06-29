@@ -13,6 +13,8 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
             },
             middleButton:{
                 'Calc': `calculate()`
+            },leftButton:{
+                'Limpar': `clearFields()`
             }
         }
 
@@ -76,13 +78,3 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
 
     }   
 }
-
-{/* <div class="inputs fieldVariableButtons">
-<input
-class = 'fieldInputVariable' 
-type="number" 
-name="fieldInputVariable_${variable}" 
-id="fieldInputVariable_${variable}"
-onchange="calculate(this)"
-onkeyup= "keyupDiv(this)"
-></input> */}

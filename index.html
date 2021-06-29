@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+
     <link rel="stylesheet" href="./styles/header/header.css">
+    <link rel="stylesheet" href="./styles/header/menu/menu.css">
+    <link rel="stylesheet" href="./styles/header/menu/renderNewProfile.css">
+
     <link rel="stylesheet" href="./styles/main/newVariable.css">
-    <link rel="stylesheet" href="./styles/header/menu.css">
     <link rel="stylesheet" href="./styles/main/variableDetails.css">
-    <link rel="stylesheet" href="./styles/controlBar.css">
     <link rel="stylesheet" href="./styles/main/newCalculation.css">
+
+    <link rel="stylesheet" href="./styles/controlBar.css">
 
     <title>PreCalc</title>
     <link rel="stylesheet" href="./styles/main/main.css">
@@ -18,18 +22,30 @@
 <body onload="renderVariables({toggle:true})">
     <header>  
         <h1 class="title">preCalc</h1>
-        <div class="menu">
-            <div class="select" onclick="openCloseMenu(this)"> Menu</div><!-- menu.js -->
-            <!-- <div class="options">
+        <div id="idProfile">
+            <div id="idProfileText" onclick='renderMenu()' >Perfil 1 </div>
+            <!-- <input type="button" value="Perfil 1 Perfil 1Perfil 1Perfil 1Perfil 1Perfil 1Perfil 1Perfil 1Perfil 1" > -->
+        </div>
+        <!-- <div class="menu">
+            <div class="select" onclick="openCloseMenu(this)"> Menu</div>
+            
+                 <div class="options">
                 <div class="option">Nova Variavel</div>
                 <div class="option">Salvar</div>
-                <div class="option">Limpar</div> -->
+                <div class="option">Limpar</div>
                 
-            </div> 
+            </div>  -->
         </div>
     </header>
     <hr>
     <main>
+        <!-- <div class='menu'>
+            <div class="option" onmouseup='renderNewProfile()'>Novo Perfil</div>
+            <div class="option" onmouseup='teste()'>Salvar</div>
+            <div class="option">Carregar</div>
+            <div class="option">Renomear</div>
+            <div class="option">Resposta automática</div>
+        </div> -->
         <!-- <div class="btnDetails">
             <input 
             class="btnDetails" 
@@ -150,7 +166,8 @@
     
 
     <script src="./scripts/script.js" ></script>
-    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/menu/menu.js"></script>
+    <script src="./scripts/menu//renderNewProfile.js"></script>
     <script src="./scripts/createVariable.js"></script>
     <script src="./scripts/renderVariables.js"></script>
     <script src="./scripts/calculate/calculate.js"></script>
