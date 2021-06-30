@@ -11,7 +11,7 @@ const renderMenu = () =>{
     <div class='menu'>
         <div class="option" onmouseup='renderNewProfile()'>Novo Perfil</div>
         <div class="option" onmouseup='saveProfile()'>Salvar</div>
-        <div class="option">Carregar</div>
+        <div class="option" onmouseup='loadProfile()'>Carregar</div>
         <div class="option">Renomear</div>
         <div class="option">Resposta automática</div>
     </div>

@@ -1,5 +1,5 @@
-function acaoPretendida  () {
-    console.log ('funcao executada' , arguments)
+const acaoPretendida =  (...args)=> {
+    console.log ('funcao executada' , args)
 }
 
 const debounce = (fn, wait = 2000) =>{
