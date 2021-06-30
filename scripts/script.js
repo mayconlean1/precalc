@@ -108,6 +108,11 @@ const clearAllDatas = () =>{
 const clearFields = () =>{
     const fields = document.querySelectorAll('.fieldInputVariable')
     fields.forEach(field => field.value = '')
+    if(autoFixed){
+        varsFixed = []
+    }
+    calculate()
+    renderMainDefault()
 }
 
 const highlightCurrentVar = (variable) =>{

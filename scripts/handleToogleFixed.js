@@ -74,3 +74,4 @@ const toogleFixed = (variable, pushInArray = true) =>{
         }  
     }
 }
+
