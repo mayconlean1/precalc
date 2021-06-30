@@ -29,6 +29,8 @@ let responses = {
         
     // }
 let currentVariable
+let autoResults = false
+let autoFixed = false
 
 //constantes
 const selectCalculations = (self , variable, calc, response) =>{

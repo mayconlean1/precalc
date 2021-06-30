@@ -12,10 +12,13 @@ const renderMenu = () =>{
         <div class="option" onmouseup='renderNewProfile()'>Novo Perfil</div>
         <div class="option" onmouseup='saveProfile()'>Salvar</div>
         <div class="option" onmouseup='loadProfile()'>Carregar</div>
-        <div class="option">Renomear</div>
-        <div class="option">Resposta automática</div>
+        <div class="option" onmouseup='renameProfile()'>Renomear</div>
+        <div class="option" id='autoResults' onmouseup='toogleAutoResults()'>Resposta automática</div>
+        <div class="option" id='autoFixed' onmouseup='toogleAutoFixed()'>Fixação automática</div>
     </div>
     `
+    toogleAutoResults(render=true)
+    toogleAutoFixed(render=true)
 }
 
 const sliceDivButton = ()=>{
