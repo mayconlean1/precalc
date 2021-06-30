@@ -55,6 +55,7 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             type="number" 
                             name="fieldInputVariable_${variable}" 
                             id="fieldInputVariable_${variable}"
+                            onclick = "autoToogleFixed('${variable}')"
                             >
                         <input
                             id = 'btnFixed_${variable}'
