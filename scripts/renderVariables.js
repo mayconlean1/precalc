@@ -31,6 +31,15 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
         field.innerHTML = ''
         const datas = reversedObject ? reverseObject(dataResults) : dataResults
 
+        const ifAutoResults = ()=>{
+            if (autoResults){
+                return`
+                    onchange="calculate(this)"
+                    onkeyup="keyupDiv(this)"
+                `
+            }
+        }
+
         for (variable in datas){
 
             field.innerHTML += `
@@ -56,6 +65,8 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             name="fieldInputVariable_${variable}" 
                             id="fieldInputVariable_${variable}"
                             onclick = "autoToogleFixed('${variable}')"
+
+                            ${ifAutoResults()}
                             >
                         <input
                             id = 'btnFixed_${variable}'
@@ -79,3 +90,5 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
 
     }   
 }
+
+
