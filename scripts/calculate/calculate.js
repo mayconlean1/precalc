@@ -11,7 +11,6 @@ const calculate = (self) => {
         showResultsInInputs()
 
     }else if (typeof(self) === 'string'){
-
         const variableName = self
         variableCurrent = variableName
         const varValue = self.value
@@ -67,7 +66,7 @@ const showSelectedResults = ()=>{
     }
 }
 
-const initDebounce = ( fn,wait=600,time) =>{
+const initDebounce = ( fn,wait=350,time) =>{
     return (self) =>{
         clearTimeout(time)
         time = setTimeout(()=>fn(self),wait)

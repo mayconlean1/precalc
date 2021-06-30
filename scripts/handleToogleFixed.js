@@ -10,7 +10,9 @@ const getFixedCheckboxAndButton= (variable)=>{
 
 const addVariableInArray = (variable, pushInArray)=>{
     if (pushInArray){
-        varsFixed.push(variable)
+        if(!varsFixed.includes(variable)){
+            varsFixed.push(variable)
+        }
     }
 }
 
@@ -19,6 +21,7 @@ const autoToogleFixed = (variable) =>{
         const [idCheckbox , idBtnFixed] = getFixedCheckboxAndButton(variable)
         idCheckbox.checked = true
         idBtnFixed.classList.add ('checked')
+        addVariableInArray(variable , true)
     }
 }
 
@@ -36,11 +39,12 @@ const toogleFixed = (variable, pushInArray = true) =>{
     if (checked){
         const delVariableInArray = (variable , pushInArray) =>{
             if (pushInArray){
-                varsFixed.forEach((v,i)=>{
-                    if(v == variable){
-                        varsFixed.splice(i,1)
-                    }
-                })
+                varsFixed = varsFixed.filter(v => v != variable)
+                // varsFixed.forEach((v,i)=>{
+                //     if(v == variable){
+                //         varsFixed.splice(i,1)
+                //     }
+                // })
             }
         }
 

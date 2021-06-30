@@ -30,8 +30,8 @@ let responses = {
     // }
 let currentVariable
 
-let autoResults = false
-let autoFixed = false
+let autoResults = true
+let autoFixed = true
 
 //constantes
 const selectCalculations = (self , variable, calc, response) =>{
