@@ -22,6 +22,7 @@ h1{
     justify-content:center;
     align-items: center;
     /* background-color:black; */
+    
 }
 
 #idProfile>div{
@@ -33,5 +34,13 @@ h1{
     background-color:rgba(173, 216, 230, 0.6);
     border-color: lightblue;
     overflow: hidden;
-    cursor: pointer;    
+    cursor: pointer; 
+    border-bottom: 1px solid rgb(81, 191, 228);
+    border-right: 1px solid rgb(81, 191, 228);   
+}
+
+#idProfile>div:active{
+    border:none;
+    border-top:  1px solid rgb(81, 191, 228);
+    border-left:  1px solid rgb(81, 191, 228);
 }

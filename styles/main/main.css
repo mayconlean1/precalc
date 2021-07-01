@@ -25,7 +25,7 @@ main{
 } */
 
 .checked {
-    background-color:lightgreen;   
+    background-color:rgb(34, 177, 224);   
 }
 
 .currentVariable{
@@ -48,4 +48,24 @@ main{
 .variableSolvedStatus{
     width: 100%;
     text-align: right;
+}
+
+.btnFixed{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 15%;
+    border-radius: 0.5rem;
+    margin-left: 0.4rem;
+    border-bottom: 1px solid rgb(81, 191, 228);
+    border-right: 1px solid rgb(81, 191, 228);
+}
+
+.btnFixed +
+.btnFixed{
+    margin-left: 0.4rem;
+}
+
+.smallSvg{
+    width: 1.3rem;
 }

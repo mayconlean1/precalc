@@ -16,9 +16,14 @@
     text-align: center;
     margin-top: 0.5rem;
     cursor: pointer;
+    border-bottom: 1px solid rgb(81, 191, 228);
+    border-right: 1px solid rgb(81, 191, 228);
 }
 
 .option:active{
+    border:none;
+    border-top:  1px solid rgb(81, 191, 228);
+    border-left:  1px solid rgb(81, 191, 228);
     background-color: rgb(173, 216, 230 , 1);
 }
 

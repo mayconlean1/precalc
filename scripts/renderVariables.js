@@ -66,22 +66,30 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             id="fieldInputVariable_${variable}"
                             onclick = "autoToogleFixed('${variable}')"
 
-                            ${ifAutoResults()}
-                            >
-                        <input
-                            id = 'btnFixed_${variable}'
-                            type="button" 
-                            value="Fixar"
-                            onclick="toogleFixed('${variable}')"
-                            >
+                            ${ifAutoResults()}>
                         
-                        <input
+                        <div
+                            class = 'btnFixed'
+                            id = 'btnFixed_${variable}'
+                            onclick="toogleFixed('${variable}')">
+
+                            <img
+                            class = 'smallSvg' 
+                            src="./svg/anchor_black_24dp.svg" alt="Fixar">
+                        </div>
+
+                        <div
+                            class = 'btnFixed'
                             id="btnEditVariableCalculation" 
-                            value='Cfg.' 
-                            type='button'
-                            onclick="renderVariableDetails('${variable}')"
-                            >
-                    </div> 
+                            onclick="renderVariableDetails('${variable}')">
+
+                            <img
+                                class = 'smallSvg' 
+                                src="./svg/settings_black_24dp.svg" 
+                                alt="Cfg.">
+                        </div>    
+                    </div>
+                    
                 </div>
                 
             `
@@ -91,4 +99,18 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
     }   
 }
 
+/*
+    <input
+    id = 'btnFixed_${variable}'
+    type="button" 
+    value="Fixar"
+    onclick="toogleFixed('${variable}')">
+
+    <input
+    id="btnEditVariableCalculation" 
+    value='Cfg.' 
+    type='button'
+    onclick="renderVariableDetails('${variable}')"
+    >
+*/
 
