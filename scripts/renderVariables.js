@@ -9,12 +9,12 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
     if (toggle){
         const controlBar = {
             rightButton:{
-                'Add' : 'createVariableWindow()'
+                '<img src="./svg/add_black_24dp.svg" alt="add">' : 'createVariableWindow()'
             },
             middleButton:{
-                'Calc': `calculate()`
+                '<img src="./svg/calculate_black_24dp.svg" alt="calc">': `calculate()`
             },leftButton:{
-                'Limpar': `clearFields()`
+                '<img src="./svg/clear_black_24dp.svg" alt="limpar">': `clearFields()`
             }
         }
 

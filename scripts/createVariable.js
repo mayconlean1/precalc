@@ -1,10 +1,10 @@
 const createVariableWindow=() =>{
     const controlBar = {
         leftButton:{
-            'Voltar' : 'renderMainDefault()'
+            '<img src="./svg/arrow_back_black_24dp.svg" alt="voltar">' : 'renderMainDefault()'
         },
         rightButton:{
-            'Confirmar' : 'addNewVariable()'
+            '<img src="./svg/done_black_24dp.svg" alt="confirmar">' : 'addNewVariable()'
         }
 
     }

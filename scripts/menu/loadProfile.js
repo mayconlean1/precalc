@@ -3,12 +3,12 @@ let selectedProfile
 const loadProfile = () =>{
     const controlBar = {
         leftButton: {
-            voltar:'renderMenu()'},
+            '<img src="./svg/arrow_back_black_24dp.svg" alt="voltar">':'renderMenu()'},
         middleButton:{
-            carregar: 'loadSelectedProfile()'
+            '<img src="./svg/get_app_black_24dp.svg" alt="carregar">': 'loadSelectedProfile()'
         },
         rightButton:{
-            deletar : 'deleteSelectedProfile()'
+            '<img src="./svg/delete_black_24dp.svg" alt="excluir">' : 'deleteSelectedProfile()'
         }
     }
     renderController(controlBar)

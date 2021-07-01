@@ -1,10 +1,10 @@
 const renderNewProfile=()=>{
     const controlBar = {
         leftButton: {
-            voltar:'renderMenu()'
+            '<img src="./svg/arrow_back_black_24dp.svg" alt="voltar">':'renderMenu()'
         },
         rightButton:{
-            confirmar :'newProfile()'
+            '<img src="./svg/done_black_24dp.svg" alt="confirmar">' :'newProfile()'
         }
     }
     renderController(controlBar)

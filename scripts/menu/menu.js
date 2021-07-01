@@ -1,7 +1,7 @@
 const renderMenu = () =>{
     const controlBar = {
         leftButton: {
-            voltar:'renderMainDefault()'}
+            '<img src="./svg/arrow_back_black_24dp.svg" alt="voltar">':'renderMainDefault()'}
     }
     renderController(controlBar)
 

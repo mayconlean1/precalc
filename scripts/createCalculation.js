@@ -2,10 +2,10 @@ const createCalculationWindow=(variable)=>{
 
     const controlBar = {
         leftButton:{
-            Voltar : `renderVariableDetails('${variable}')`
+            '<img src="./svg/arrow_back_black_24dp.svg" alt="voltar">' : `renderVariableDetails('${variable}')`
         },
         rightButton:{
-            Confirmar:`confirmCalculation('${variable}')`
+            '<img src="./svg/done_black_24dp.svg" alt="confirmar">':`confirmCalculation('${variable}')`
         }
     }
 

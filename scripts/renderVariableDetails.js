@@ -1,10 +1,10 @@
 const renderVariableDetails = (variable)=>{
     const controlBar = {
         rightButton:{
-            'Add' : `createCalculationWindow('${variable}')`
+            '<img src="./svg/add_black_24dp.svg" alt="add">' : `createCalculationWindow('${variable}')`
         },
         leftButton:{
-            'Voltar' : 'renderMainDefault()'
+            '<img src="./svg/arrow_back_black_24dp.svg" alt="voltar">' : 'renderMainDefault()'
         },
     }
     const varaibleDetails = (variable) =>{
