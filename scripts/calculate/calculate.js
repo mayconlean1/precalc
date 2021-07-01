@@ -167,6 +167,9 @@ const showResultsInInputs = () =>{
             div.textContent = ''
             div.parentElement.classList.remove('varSolved')
         })
+
+        const buttonsConfig = document.querySelectorAll('.buttonVariable')
+        buttonsConfig.forEach(btn=> btn.classList.remove('varSolvedBtnConfig'))
         
     }
     clearAllResultsStatus()
@@ -186,9 +189,12 @@ const showResultsInInputs = () =>{
                 const varSolvedlenght = Object.values(responses.solved[variable]).length
 
                 if(varSolvedlenght > 1){
-                    const solvedStatus = document.querySelector(`#variableSolvedStatus_${variable}`)
+                    const solvedStatus = document.getElementById(`variableSolvedStatus_${variable}`)
                     solvedStatus.textContent = `${varSolvedlenght} resultados`
-                    solvedStatus.parentElement.classList.add('varSolved')      
+                    solvedStatus.parentElement.classList.add('varSolved')
+                    
+                    const buttonConfig = document.getElementById(`btnEditVariableCalculation_${variable}`)
+                    buttonConfig.classList.add('varSolvedBtnConfig')
             }
             })(variable)
     

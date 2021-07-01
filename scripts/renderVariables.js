@@ -69,7 +69,7 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                             ${ifAutoResults()}>
                         
                         <div
-                            class = 'btnFixed'
+                            class = 'buttonVariable'
                             id = 'btnFixed_${variable}'
                             onclick="toogleFixed('${variable}')">
 
@@ -79,8 +79,8 @@ const renderVariables = (args = {toggle:true ,reversedObject:true}) =>{
                         </div>
 
                         <div
-                            class = 'btnFixed'
-                            id="btnEditVariableCalculation" 
+                            class = 'buttonVariable'
+                            id="btnEditVariableCalculation_${variable}" 
                             onclick="renderVariableDetails('${variable}')">
 
                             <img

@@ -32,16 +32,15 @@ main{
     border: 1px solid grey;
 }
 
-.varSolved{
-    background-color:rgba(47, 161, 199, 0.9);
-}
+
 
 .headerVariableName{
-    padding-top: 0.1rem;
-    padding-left:0.3rem;
-    padding-right: 0.3rem;
+    padding-top: 0.2rem;
+    padding-left:0.4rem;
+    padding-right: 0.4rem;
     width: 100%;
     display: flex;
+   
     
 }
 
@@ -50,7 +49,7 @@ main{
     text-align: right;
 }
 
-.btnFixed{
+.buttonVariable{
     display: flex;
     align-items: center;
     justify-content:center;
@@ -61,11 +60,26 @@ main{
     border-right: 1px solid rgb(81, 191, 228);
 }
 
-.btnFixed +
-.btnFixed{
+.buttonVariable +
+.buttonVariable{
     margin-left: 0.4rem;
 }
 
 .smallSvg{
     width: 1.3rem;
+}
+
+.varSolved{
+    background-color:rgba(147, 223, 248, 0.9);
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+    
+    border-right: 1px solid rgb(81, 191, 228) ;
+}
+
+.varSolvedBtnConfig{
+    border-radius: 0;
+    background-color:rgba(147, 223, 248, 0.9);
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
 }
