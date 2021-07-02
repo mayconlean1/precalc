@@ -87,13 +87,16 @@ const renderMainDefault = () =>{
 }
 
 const deleteVariable=(variable)=>{
-    delete dataResults[variable]
-    delete calculations[variable]
-    delete responses.solved[variable]
-    delete responses.notSolved[variable]
-    delete responses.sequence[variable]
-    delete selectedCalculations[variable]
-    renderMainDefault()  
+    const check = confirm(`Deseja deletar ${variable} ?`)
+    if(check){
+        delete dataResults[variable]
+        delete calculations[variable]
+        delete responses.solved[variable]
+        delete responses.notSolved[variable]
+        delete responses.sequence[variable]
+        delete selectedCalculations[variable]
+        renderMainDefault()  
+    }
 }
 
 const clearAllDatas = () =>{

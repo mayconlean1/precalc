@@ -1,27 +1,20 @@
 const renderVariableDetails = (variable)=>{
     const controlBar = {
-        rightButton:{
+        middleButton:{
             '<img src="./svg/add_black_24dp.svg" alt="add">' : `createCalculationWindow('${variable}')`
         },
         leftButton:{
             '<img src="./svg/arrow_back_black_24dp.svg" alt="voltar">' : 'renderMainDefault()'
         },
+        rightButton:{
+          '<img src="./svg/delete_black_24dp.svg">'  :`deleteVariable('${variable}')`
+        }
     }
     const varaibleDetails = (variable) =>{
         const main = document.querySelector('main')
         main.innerHTML = `
         <div class="btnDetails">
-            <input 
-            class="btnDetails" 
-            type="button" 
-            value="Voltar"
-            onclick="renderMainDefault()">
-            <input class="btnDetails" 
-                type="button" 
-                value="delete"
-                onclick="deleteVariable('${variable}')"
-                >
-
+        
         </div>
         
         <div class="variableDetailsMenu">
@@ -33,10 +26,20 @@ const renderVariableDetails = (variable)=>{
             ${calculationsFields(variable)}
             </div>
         </div>
-        
         `
-
     }
+/*
+<input 
+    class="btnDetails" 
+    type="button" 
+    value="Voltar"
+    onclick="renderMainDefault()">
+<input class="btnDetails" 
+    type="button" 
+    value="delete"
+    onclick="deleteVariable('${variable}')">
+*/
+
     //${renderController({buttonAdd:'addCalculations(variable)'})}
     const calculationsFields=(variable)=>{
         let fields = ''
