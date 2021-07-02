@@ -7,6 +7,10 @@ let dataResults = {
     'D' : '',
     'E' : '',
     'F': '',
+    'G' : '',
+    'H' : '',
+    'I': '',
+    
     
 }
 let calculations = {

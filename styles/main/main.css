@@ -19,14 +19,20 @@ main{
     overflow-x: hidden;
     background-color:rgba(173, 216, 230, 0.5);
 }
-
-@media screen and (max-width: 414px) {
+/* galaxy Fold*/
+@media screen and (width:280px) and (height:653px){
+    main{
+        padding: 0;
+    }
+}
+/* @media screen and (max-width: 414px) {
     main{   
         padding:0.4rem ;
     }  
-}
+} */
 
 .fieldVariable{
+    width: 100%;
     padding: 0.3rem;
     border-radius: 0.5rem;
     
@@ -71,6 +77,13 @@ main{
     margin-left: 0.4rem;
     border-bottom: 1px solid rgb(81, 191, 228);
     border-right: 1px solid rgb(81, 191, 228);
+}
+
+/* galaxy Fold*/
+@media screen and (width:280px) and (height:653px){
+    .buttonVariable{
+        width: 20%;
+    }
 }
 
 .buttonVariable +
