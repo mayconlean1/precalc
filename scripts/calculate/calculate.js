@@ -8,7 +8,10 @@ const calculate = (self) => {
         dataResults[variableName] = varValue
         updateResponses()
         updateDataResults()
+        updateSelectedCalculations()
         showResultsInInputs()
+        showSelectedResults()
+
 
     }else if (typeof(self) === 'string'){
         const variableName = self
@@ -17,6 +20,8 @@ const calculate = (self) => {
         dataResults[variableName] = varValue
         updateResponses()
         updateDataResults()
+        updateSelectedCalculations()
+
 
     }else if (typeof(self) === 'undefined'){
 
