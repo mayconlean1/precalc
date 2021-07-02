@@ -29,153 +29,29 @@
     <title>PreCalc</title>
     <link rel="stylesheet" href="./styles/main/main.css">
 </head>
+
 <body onload="renderVariables({toggle:true})">
-    <header>  
-        <h1 class="title">preCalc</h1>
-        <div id="idProfile">
-            <div id="idProfileText" onclick='renderMenu()' >Menu </div>
+    <div class="divBody">
+        <header>  
+            <h1 class="title">preCalc</h1>
+            <div id="idProfile">
+                <div 
+                id="idProfileText"
+                onclick='renderMenu()' 
+                > Menu </div> 
+            </div>
+        </header>
+
+        <hr>
+
+        <main>
+            <div class="fieldsVariableValues"> 
+            </div>
+        </main>
             
-        </div>
-        <!-- <div class="menu">
-            <div class="select" onclick="openCloseMenu(this)"> Menu</div>
-            
-                 <div class="options">
-                <div class="option">Nova Variavel</div>
-                <div class="option">Salvar</div>
-                <div class="option">Limpar</div>
-                
-            </div>  -->
-        </div>
-    </header>
-    <hr>
-    <main>
-        
-        <!-- <div class='menu'>
-            <div class="option" onmouseup='renderNewProfile()'>Novo Perfil</div>
-            <div class="option" onmouseup='teste()'>Salvar</div>
-            <div class="option">Carregar</div>
-            <div class="option">Renomear</div>
-            <div class="option">Resposta automática</div>
-        </div> -->
-        <!-- <div class="btnDetails">
-            <input 
-            class="btnDetails" 
-            type="button" 
-            value="Voltar"
-            onclick="renderMainDefault()">
-            <input class="btnDetails" 
-                type="button" 
-                value="delete"
-                onclick="deleteVariable('var')"
-                >
 
-        </div>
-        
-        <div class="variableDetailsMenu">
-            <div class="detailsHeader">
-                <h2 class="detailsVariableName">Var</h2> 
-            </div>
-            <div class="detailsBody">
-
-
-                <div id='calculationValue_###Expressao'  
-                class="calcultationField calcSolved calculationSelectd">
-                    <div id='calculationValue_###Expressao'
-                     class="calculationValue"> A + C</div>
-                    <div id='calculationResp_###Expressao' class="calculationInfo">response</div>
-                    
-                </div>
-
-                <div id='calculationValue_###Expressao'  class="calcultationField calcNotSolved">
-                    <div
-                    id='calculationValue_###Expressao'
-                    class="calculationValue"> A + C</div>
-                    <div
-                    id='calculationValue_###Expressao'
-                    class="calculationInfo">response</div>
-                </div>
-
-
-            </div>
-        </div> -->
-
-        <!-- <div class="newVariable">
-        </div> -->
-    
-            <!-- <span>Nome da Variavel</span>
-            <input type="text">
-            <div id="btnCreateVariable">Criar</div>
-            <div id="btnCancelCreateVariable">Cancelar</div> -->
-    
-       
-        <div class="fieldsVariableValues"> <!-- createFieldsVariableValues.js -->
-            <!-- <div class="fieldVariable">
-                <span id='variableName' > XXXXVar </span>
-                <div class="inputs fieldVariableButtons">
-                    <input
-                        class = 'fieldInputVariable' 
-                        type="number" 
-                        name="fieldInputVariable_XXXXVAR" 
-                        id="fieldInputVariable_XXXXVAR"
-                        onchange="calculate(this)">
-                    <input
-                        id="editVariableCalculation" 
-                        type="button" 
-                        value="Edit"
-                        onclick="edit( this,'XXXXVar')"
-                        >
-                </div> 
-            </div>
-            <div class="fieldVariable">
-                <span id='variableName' > A </span>
-                <div class="inputs fieldVariableButtons">
-                    <input
-                        class = 'fieldInputVariable' 
-                        type="number" 
-                        name="fieldInputVariable_A" 
-                        id="fieldInputVariable_A"
-                        onchange="calculate(this)">
-                    <input
-                        id="editVariableCalculation" 
-                        type="button" 
-                        value="Edit"
-                        onclick="edit( this,'A')"
-                        >
-
-                </div> 
-            </div>
-            <div class="fieldVariable">
-                <span id='variableName' >B </span>
-                <div class="inputs fieldVariableButtons">
-                    <input
-                        class = 'fieldInputVariable' 
-                        type="number" 
-                        name="fieldInputVariable_B" 
-                        id="fieldInputVariable_B"
-                        onchange="calculate(this)">
-                    <input
-                        id="editVariableCalculation" 
-                        type="button" 
-                        value="Edit"
-                        onclick="edit( this,'B')"
-                        >
-
-                </div> 
-            </div>    -->
-        
-    </main> 
-
-    <div class="controlBar" >
-        <!-- <div class="controllerMiddle" onclick="createVariableWindow()">Add</div>
-        <div class="controls">
-            <div class="controller" onclick="renderMainDefault()">back</div>
-            <div class="spacer"></div>
-            <div class="controllerField"></div>
-        </div> -->
+        <div class="controlBar"></div>
     </div>
-    
-    
-
     <script src="./scripts/script.js" ></script>
 
     <script src="./scripts/menu/menu.js"></script>

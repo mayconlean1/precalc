@@ -5,8 +5,8 @@ let dataResults = {
     'B' : '',
     'C': '',
     'D' : '',
-    // 'E' : '',
-    // 'F': '',
+    'E' : '',
+    'F': '',
     
 }
 let calculations = {
