@@ -14,6 +14,7 @@ const createVariableWindow=() =>{
         const div = document.createElement('div')
         div.classList.add( classNewDiv)
         main.insertBefore(div , firstChild)
+        main.scroll(0,0)
     }
     let divNewVariable = document.querySelector('.newVariable')
     if(divNewVariable === null){
@@ -21,13 +22,14 @@ const createVariableWindow=() =>{
         divNewVariable = document.querySelector('.newVariable')
     }
     
-
     if(divNewVariable.children.length == 0){
         divNewVariable.innerHTML = `
             <span>Nome da Variavel</span>
             <input id='InputVariableName' type="text">
         `
     }
+
+    main
     renderController(controlBar)
 
     //openCloseMenu() 

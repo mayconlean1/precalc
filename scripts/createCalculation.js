@@ -17,6 +17,7 @@ const createCalculationWindow=(variable)=>{
         const newDiv = document.createElement('div')
         newDiv.classList.add(classNameNewDiv)
         parentDiv.insertBefore(newDiv, childDiv)
+        parentDiv.parentNode.scroll(0,0)
     }
     let divNewCalculation = document.querySelector('.newCalculation')
         
