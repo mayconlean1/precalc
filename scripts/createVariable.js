@@ -26,6 +26,14 @@ const createVariableWindow=() =>{
         divNewVariable.innerHTML = `
             <span>Nome da Variavel</span>
             <input id='InputVariableName' type="text">
+            <div 
+               id="btnCreateVariable"
+               onclick ='addNewVariable()'
+               >Criar</div>
+           <div 
+               id="btnCancelCreateVariable"
+               onclick ="renderMainDefault()"
+           >Cancelar</div>
         `
     }
 
@@ -34,14 +42,6 @@ const createVariableWindow=() =>{
 
     //openCloseMenu() 
     
-    //          <div 
-    //             id="btnCreateVariable"
-    //             onclick ='addNewVariable()'
-    //             >Criar</div>
-    //         <div 
-    //             id="btnCancelCreateVariable"
-    //             onclick ="renderMainDefault()"
-    //         >Cancelar</div>
 }
 
 const addNewVariable=()=>{
